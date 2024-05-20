@@ -19,9 +19,24 @@
 
 #%%
 def order(sentence):
+    if sentence == "":
+        return ""
     returnString = ""
-    input = sentence.split() 
-
+    input = sentence.split()
+    indexdict = {}
+    for word in input : 
+        for char in word:
+            if char.isalpha():
+                continue
+            else : 
+                index = int(char) 
+                indexdict[index] = word 
+    myKeys = list(indexdict.keys())
+    myKeys.sort() 
+    sortedDict = {i:indexdict[i] for i in myKeys}
+    stringList = [sortedDict[i] for i in myKeys]
+    x = " ".join(stringList)
+    returnString = x    
 
     return returnString
 
@@ -30,6 +45,7 @@ def order(sentence):
 ts1 = "is2 Thi1s T4est 3a" 
 os1 = "Thi1s is2 3a T4est"
 ts2 = "4of Fo1r pe6ople g3ood th5e the2"
-os2 = "Fo1r the2 g3ood 4of th5e pe6ople")
+os2 = "Fo1r the2 g3ood 4of th5e pe6ople"
 ts3 = ""
 os3 = ""
+# %%
