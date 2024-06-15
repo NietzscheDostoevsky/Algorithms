@@ -1,3 +1,7 @@
+// not tested for jagged arrays 
+// for jagged arrra allocate memory for the largest row length
+// by calculating the longest array length. 
+
 class Transposition2DArray{
 
 	public static void transposeArray(int[][] a){
