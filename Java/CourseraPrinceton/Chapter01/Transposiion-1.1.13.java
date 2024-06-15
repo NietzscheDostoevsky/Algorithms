@@ -2,7 +2,7 @@ class Transposition2DArray{
 
 	public static void transposeArray(int[][] a){
 
-		int[][] b = new int[a.length][a[0].length]; 
+		int[][] b = new int[a[0].length][a.length]; 
 		for(int i = 0; i<a.length; i++){
 			for(int j = 0; j<a[0].length; j++){
 				b[j][i] = a[i][j];
@@ -21,6 +21,12 @@ class Transposition2DArray{
 			{26, 27, 28, 29, 30},
 			{31, 32, 33, 34, 35}
 		}; // 5x5
+
+		int[][] b = {
+			{11, 12, 13, 14, 15}, 
+			{16, 17, 18, 19, 20},
+			
+		}; // 2x5
 
 		transposeArray(a); 
 	}
