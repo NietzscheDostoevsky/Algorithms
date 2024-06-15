@@ -5,10 +5,10 @@ class Transposition2DArray{
 		int[][] b = new int[a.length][a[0].length]; 
 		for(int i = 0; i<a.length; i++){
 			for(int j = 0; j<a[0].length; j++){
-
+				b[j][i] = a[i][j];
 			}
 		}
-		print2DArray(a); 
+		print2DArray(b); 
 
 	}
 
