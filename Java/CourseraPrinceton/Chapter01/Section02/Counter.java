@@ -1,9 +1,11 @@
+import edu.princeton.cs.algs4.StdOut;
+
 public class Counter {
 
 	private final String name;
 	private int count;
 
-	public counter(String id) { // constructor
+	public Counter(String id) { // constructor
 		name = id;
 	}
 
@@ -20,7 +22,7 @@ public class Counter {
 	}
 }
 
-public class CounterDriver {
+class CounterDriver {
 	public static void main(String[] args) {
 		Counter heads = new Counter("heads");
 		Counter tails = new Counter("tails");
