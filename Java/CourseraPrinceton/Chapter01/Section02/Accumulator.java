@@ -30,8 +30,8 @@ class AccumulatorDriver {
 		int T = Integer.parseInt(args[0]);
 		Accumulator a = new Accumulator();
 
-		for(int i = 0; i < T; t++) {
-			a.addDataValue(StdRandom.random())
+		for(int t = 0; t < T; t++) {
+			a.addDataValue(StdRandom.random());
 		}
 		StdOut.println(a);
 
