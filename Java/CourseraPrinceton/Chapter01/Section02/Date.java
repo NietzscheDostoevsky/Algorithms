@@ -1,14 +1,14 @@
 // basic date, takes larger data, but faster. 
 
-public class BasicDate {
+class BasicDate {
 	private final int month;
 	private final int day;
 	private final int year;
 
-	public Date(int m, int d, int y) { //constructor
-		month = m;
-		day = d;
-		year = y;
+	public BasicDate(int m, int d, int y) { //constructor
+		this.month = m;
+		this.day = d;
+		this.year = y;
 	}
 
 	public int month() {
@@ -32,8 +32,8 @@ public class BasicDate {
 class SmallDate{
 	private final int value;
 
-	public Date(int m, int d, int y) {
-		value = y*512 + m*32 + d;
+	public SmallDate(int m, int d, int y) {
+		this.value = y*512 + m*32 + d;
 	}
 
 	public int month() {
