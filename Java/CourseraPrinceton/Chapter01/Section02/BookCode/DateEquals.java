@@ -34,7 +34,7 @@ class DateEquals {
 		if(this == x) return true;
 		if(x == null) return false;
 		if (this.getClass() != x.getClass()) return false;
-		Date that = (Date) x;
+		DateEquals that = (DateEquals) x;
 		if(this.day != that.day) return false;
 		if(this.month != that.month) return false;
 		if(this.year != that.year) return false;
@@ -48,9 +48,9 @@ class DateEquals {
 class DateEqualsDriver {
 	public static void main(String[] args) {
 		
-		Date date1 = new Date(6, 25, 2024);
-		Date date2 = new Date(6, 25, 2024);
-		Date date3 = new Date(7, 25, 2024);
+		DateEquals date1 = new DateEquals(6, 25, 2024);
+		DateEquals date2 = new DateEquals(6, 25, 2024);
+		DateEquals date3 = new DateEquals(7, 25, 2024);
 
 		System.out.println("Date1 == Date2: " + (date1.equals(date2)));
 		System.out.println("Date2 == Date3: " + (date2.equals(date3)));
