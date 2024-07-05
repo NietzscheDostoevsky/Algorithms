@@ -37,7 +37,8 @@ class FixedCapacityStackofStringsDriver {
 		while (!StdIn.isEmpty()) {
 			String item = StdIn.readString();
 			if (!item.equals("-")) {
-				s.push();
+				s.push(item);
+				StdOut.println("Haha");
 			} else if (!s.isEmpty()) {
 				StdOut.print(s.pop() + " ");
 			}
