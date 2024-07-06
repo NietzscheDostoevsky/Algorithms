@@ -25,6 +25,7 @@ public class ResizingArrayStack<Item> implements Iterable<Item> {
 			temp[i] = a[i];
 		}
 		a = temp; 
+		StdOut.println("Array size Doubled to: " + N );
 	}
 
 	public void push(Item item) {
