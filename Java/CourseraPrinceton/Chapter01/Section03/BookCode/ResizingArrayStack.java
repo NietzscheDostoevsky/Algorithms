@@ -3,6 +3,7 @@
 // 	Allows clients to make stacks for any tupe of data. 
 // 	supports clied use of foreach to iterate over through the stack items in LIFO order. 
 
+import princeton.edu.cs.algs4.*;
 import java.util.Iterator;
 
 public class ResizingArrayStack<Item> implements Iterable<Item> {
@@ -64,6 +65,22 @@ public class ResizingArrayStack<Item> implements Iterable<Item> {
 		}
 		public void remove() {
 		}
+	}
+}
+
+class ResizingArrayStackDriver {
+	public static void main(String[] args) {
+		
+		ResizingArrayStack<String> s;
+		s = ResizingArrayStack<String>();
+		while (!StdIn.isEmpty()) {
+			String item = StdIn.readString();
+			if (!item.equals("-"))
+				s.push(item);
+			else if (!s.isEmpty()) StdOut.print(s.pop() + " ");
+		}
+		StdOut.println("(" + s.size() + " left on stack)");
+
 	}
 }
 
