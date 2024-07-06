@@ -25,14 +25,16 @@ public class ResizingArrayStack<Item> implements Iterable<Item> {
 			temp[i] = a[i];
 		}
 		a = temp; 
-		StdOut.println("Array size Doubled to: " + N );
+
 	}
 
 	public void push(Item item) {
 		// add item at the top of the stack 
 		if (N == a.length) {
+			StdOut.println("Array size doubled to: " + a.length*2 );
 			resize(2*a.length); // double the array length if its full
-		} 
+		}
+
 		a[N++] = item; // add item to the array 
 	}
 	
@@ -44,8 +46,8 @@ public class ResizingArrayStack<Item> implements Iterable<Item> {
 			// resizing the array 
 			// to 1/2 its size when its 1/4 empty
 			// so it always have half array to fill up 
-
-			resize(a.length/2);
+			StdOut.println("Array size Halved to: " + a.length/2 );
+			resize(a.length/2);	
 		}
 		return item;
 	}
