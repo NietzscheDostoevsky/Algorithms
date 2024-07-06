@@ -33,4 +33,19 @@ public class ResizingArrayStack<Item> implements Iterable<Item> {
 		} 
 		a[N++] = item; // add item to the array 
 	}
+	
+	public Item pop() {
+		// remove item from the top of the stack 
+		Item item = a[--N];
+		a[N] = null; // avoiding loitering, so orphaning the object at a[N] after dec
+		if ( N > 0 && N == a.length/4 ) {
+			// resizing the array 
+			// to 1/2 its size when its 1/4 empty
+			// so it always have half array to fill up 
 
+			resize(a.length/2);
+		}
+		return item;
+	}
+
+	public 
