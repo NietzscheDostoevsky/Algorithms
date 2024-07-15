@@ -1,7 +1,7 @@
 import edu.princeton.cs.algs4.*;
 import java.util.Iterator;
 
-class StackLinkedListAlgo<Item> implements Iterable<Item> {
+public class StackLinkedListAlgo<Item> implements Iterable<Item> {
 
 	private Node first; // top of the stack
 						// most recently added node. 
@@ -27,6 +27,8 @@ class StackLinkedListAlgo<Item> implements Iterable<Item> {
 		first.item = item; 
 		first.next = oldfirst;
 		N++;
+		StdOut.println("first.item= " + first.item);
+		StdOut.println("first.next= " + first.next);
 	}
 
 	public Item pop() {
@@ -38,7 +40,7 @@ class StackLinkedListAlgo<Item> implements Iterable<Item> {
 	}
 
 	public Iterator<Item> iterator() {
-		return ListIterator();
+		return new ListIterator();
 	}
 
 	private class ListIterator implements Iterator<Item> {
@@ -56,7 +58,7 @@ class StackLinkedListAlgo<Item> implements Iterable<Item> {
 	}
 }
 
-public class StackLinkedListAlgoDriver {
+class StackLinkedListAlgoDriver {
 	// creating a stack and push/pop strings as directed on StdIn
 	public static void main(String[] args) {
 		
@@ -68,6 +70,6 @@ public class StackLinkedListAlgoDriver {
 			else if (!s.isEmpty())
 				StdOut.print(s.pop() + " ");
 		}
-		StdOut.println("(" + s.size() + s.size() + " left on stack)");
+		StdOut.println("(" + s.size() + " left on stack)");
 	}
 }
