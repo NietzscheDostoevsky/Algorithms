@@ -25,23 +25,27 @@ public class UF {
 
 	public int find(int p) {
 		// Book Page 222
-
+		return id[p]; 
 	}
 
 	public staic void union(int p, int q) {
-		// implemented later
+		// Book Page 222
+		int pID = find(p);
+		int qID = find(q); 
+
+		// nothing to do 
 	}
 
 	public static void main(String[] args) {
 		// Solve dynamic connectivity problem on StdIn. 
 		
-		int N = StdIn.readInt(); 	 // Read number of sites. 
+		int N = StdIn.readInt(); 	   // Read number of sites. 
 		UF uf = new UF(N); 
 		while (!StdIn.isEmpty()) {
 			int p = StdIn.readInt(); 
-			int q = StdIn.readInt(); // Read pairs to connect. 
+			int q = StdIn.readInt();   // Read pairs to connect. 
 			if (uf.connected(p, q)) {
-				continue; 			 // ignore if connected. 
+				continue; 			   // ignore if connected. 
 			}
 			uf.union(p, q);
 			StdOut.println(p + " " + q) ; 
