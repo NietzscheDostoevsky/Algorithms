@@ -1,3 +1,5 @@
+// Book Page 221 
+
 import edu.princeton.cs.algs4.*;
 
 public class UF {
@@ -22,7 +24,8 @@ public class UF {
 	}
 
 	public int find(int p) {
-		// implemented later 
+		// Book Page 222
+
 	}
 
 	public staic void union(int p, int q) {
@@ -32,12 +35,17 @@ public class UF {
 	public static void main(String[] args) {
 		// Solve dynamic connectivity problem on StdIn. 
 		
-		int N = StdIn.readInt(); // Read number of sites. 
+		int N = StdIn.readInt(); 	 // Read number of sites. 
 		UF uf = new UF(N); 
 		while (!StdIn.isEmpty()) {
 			int p = StdIn.readInt(); 
 			int q = StdIn.readInt(); // Read pairs to connect. 
-			
+			if (uf.connected(p, q)) {
+				continue; 			 // ignore if connected. 
+			}
+			uf.union(p, q);
+			StdOut.println(p + " " + q) ; 
 		}
+		StdOut.println(uf.count() + " components");
 	}
 }
