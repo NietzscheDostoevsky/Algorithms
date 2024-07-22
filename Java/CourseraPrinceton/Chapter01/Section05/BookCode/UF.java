@@ -29,12 +29,22 @@ public class UF {
 		return id[p]; 
 	}
 
-	public staic void union(int p, int q) {
+	public void union(int p, int q) {
 		// Book Page 222
 		int pID = find(p);
 		int qID = find(q); 
-
-		// nothing to do 
+            
+		// nothing to do if p and q are already in the same component. 
+       if (pID == qID) {
+            return;
+        }
+        
+        // Rename p's component to q's name; 
+        for (int i = 0; i < id.length; i++) {
+            if (id[i] == pID)
+                id[i] = qID;
+        }
+        count--; 
 	}
 
 	public static void main(String[] args) {
@@ -52,5 +62,5 @@ public class UF {
 			StdOut.println(p + " " + q) ; 
 		}
 		StdOut.println(uf.count() + " components");
-  }
+    }
 }
