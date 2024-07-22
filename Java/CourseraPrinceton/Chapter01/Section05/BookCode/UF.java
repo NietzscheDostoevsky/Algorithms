@@ -25,6 +25,7 @@ public class UF {
 
 	public int find(int p) {
 		// Book Page 222
+        // Quick Find. (Eager approach)
 		return id[p]; 
 	}
 
@@ -51,5 +52,5 @@ public class UF {
 			StdOut.println(p + " " + q) ; 
 		}
 		StdOut.println(uf.count() + " components");
-	}
+  }
 }
