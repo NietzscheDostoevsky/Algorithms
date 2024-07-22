@@ -1,4 +1,4 @@
-pubic interface UFI {
+public interface UFI {
     // Initialize N sites with integer names (0 to N-1)
     int N; 
 
