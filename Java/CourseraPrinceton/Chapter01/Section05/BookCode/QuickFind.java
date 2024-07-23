@@ -5,7 +5,7 @@ import edu.princeton.cs.algs4.*;
 // Source code form Coursera video 
 //  on quick find. 
 
-public class QuickFind {
+public class QuickFind implements UFI {
     private int[] id;
     
     public QuickFind(int N) {
