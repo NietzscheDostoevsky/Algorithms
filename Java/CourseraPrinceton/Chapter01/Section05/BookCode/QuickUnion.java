@@ -13,6 +13,32 @@ public class QuickUnion implements UFI {
         }
     }
 
+    public int count() {return count;}
+
+    
+    public boolean connected(int p, int q) {
+        return find(p) == find(q) ;
+    }
+
+    public int find(int p) {
+        // find component name; 
+        while(p != id[p]) {
+            p = id[p];
+        }
+        return p;
+    }
+
+    public void union(int p, int q) {
+        // Give p and q the same root. 
+        int pRoot = find(p); 
+        int qRoot = find(q); 
+        if (pRoot == qRoot) {
+            return;
+        }
+        id[pRoot] = qRoot; 
+        count--;
+    }
+
     public static void main(String[] args) {
        // main driver method 
        int N = StdIn.readInt();
