@@ -2,7 +2,16 @@ import edu.princeton.cs.algs4.*;
 
 public class QuickUnion implements UFI {
 
+    private int[] id; 
+    private int count; 
 
+    public QuickUnion(int N) { // constructor 
+        count = N; 
+        id = new int[N]; 
+        for (int i = 0; i < N; i++) {
+            id[i] = i;
+        }
+    }
 
     public static void main(String[] args) {
        // main driver method 
