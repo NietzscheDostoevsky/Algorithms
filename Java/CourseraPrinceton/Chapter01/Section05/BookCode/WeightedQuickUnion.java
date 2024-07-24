@@ -1,6 +1,6 @@
 // implementing weighted quick-union 
 
-import edu.princeton.cd.algs4.*; 
+import edu.princeton.cs.algs4.*; 
 
 public class WeightedQuickUnion implements UFI {
 
@@ -30,7 +30,7 @@ public class WeightedQuickUnion implements UFI {
         return find(p) == find(q); 
     }
 
-    private int find(int p) {
+    public int find(int p) {
         // follow links to find a root
         while(p != id[p]) {
             p = id[p];
@@ -65,7 +65,7 @@ public class WeightedQuickUnion implements UFI {
         while (!StdIn.isEmpty()) {
             int p = StdIn.readInt(); 
             int q = StdIn.readInt(); 
-            if (wqf.connected(p, q) {
+            if (wqf.connected(p, q)) {
                 continue;
             }
             wqf.union(p, q);
