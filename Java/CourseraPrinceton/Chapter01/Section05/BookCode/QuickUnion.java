@@ -43,6 +43,7 @@ public class QuickUnion implements UFI {
        // main driver method 
        int N = StdIn.readInt();
        QuickUnion qu = new QuickUnion(N);
+       Stopwatch timer = new Stopwatch();
 
        while (!StdIn.isEmpty()) {
            int p = StdIn.readInt();
@@ -52,6 +53,8 @@ public class QuickUnion implements UFI {
            qu.union(p, q);
            StdOut.println(p + " " + q);
        }
-        StdOut.println(qu.count() + " components"); 
+        StdOut.println("Elapsed Time: " + timer.elapsedTime()); 
+        StdOut.println(qu.count() + " components");
+
     }
 }
