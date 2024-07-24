@@ -61,7 +61,7 @@ public class WeightedQuickUnion implements UFI {
         
         int N = StdIn.readInt(); 
         WeightedQuickUnion wqf = new WeightedQuickUnion(N); 
-
+        Stopwatch timer = new Stopwatch();
         while (!StdIn.isEmpty()) {
             int p = StdIn.readInt(); 
             int q = StdIn.readInt(); 
@@ -71,7 +71,9 @@ public class WeightedQuickUnion implements UFI {
             wqf.union(p, q);
             StdOut.println(q + " " + q); 
         }
+        double time = timer.elapsedTime();
         StdOut.println(wqf.count() + " components");
+        StdOut.println("Elapsed Time: " + time);
 
     }
 }
