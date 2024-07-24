@@ -31,7 +31,7 @@ public interface SortAlgoTemplate {
 		// Test wheather the array entries are in order. 
 
 		for (int i = 1; i < a.length; i++) {
-			if (less(a[i], a[i - j])) {
+			if (less(a[i], a[i - 1])) {
 				return false; 
 			}
 		}
