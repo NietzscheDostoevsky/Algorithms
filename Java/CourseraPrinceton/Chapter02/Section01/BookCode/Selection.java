@@ -1,9 +1,9 @@
 import edu.princeton.cs.algs4.*; 
 
-public class Selection implements SortAlgoTemplate {
+public class Selection  {
 
-	@Override
-	public static void sort(Comparable[] a) {
+	
+	public void sort(Comparable[] a) {
 		// sort a[] into increasin order. 
 		int N = a.length;  // array length 
 		for (int i = 0; i < N; i++) {
@@ -27,6 +27,7 @@ public class Selection implements SortAlgoTemplate {
 
 	public static void main(String[] args) {
 		// Read strings from standard input, sort them, and print. 
+
 		String[] a = In.readStrings();
 		sort(a); 
 		assert isSorted(a); 
