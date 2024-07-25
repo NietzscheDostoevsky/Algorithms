@@ -30,7 +30,7 @@ public class Selection  {
 		return v.compareTo(w) < 0; 
 	}
 
-	private static void exch (Comparable[], int i, int j) {
+	private static void exch (Comparable[] a, int i, int j) {
 		// input a Comparable[] a, index i, index j
 		// exchanges objects at index i, j in array a;
 
