@@ -7,7 +7,14 @@ public class Insertion  {
 
 	
 	public static void sort(Comparable[] a) {
-		
+		// sort a[] in ascending order. 
+		int N = a.length;
+		for (int i = 0; i < N; i++) {
+			// Insert a[i] among a[i-1], a[i-2], a[i-3]... 
+			for (int j = i; j > 0 && less(a[j], a[j-1]); j--) {
+				exch(a, j, j-1);
+			}
+		}	
 	}
 
 	private static boolean less (Comparable v, Comparable w) {
