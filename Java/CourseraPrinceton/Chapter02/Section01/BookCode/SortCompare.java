@@ -11,6 +11,8 @@ public class SortCompare {
         if (algo.equals("Quick")) Quick.sort(a); 
         if (algo.equals("Heap")) Heap.sort(a); 
 
+        return timer.elapsedTime();
+
     }
     public static double timeRandomInput(String algo, int N, int T) {
         // Use algo to sort T random arrays of length N. 
