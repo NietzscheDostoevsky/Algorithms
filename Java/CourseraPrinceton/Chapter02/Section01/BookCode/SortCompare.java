@@ -30,10 +30,10 @@ public class SortCompare {
     }
 
     public static void main(String[] args) {
-        String algo1 = args[0];
-        String algo2 = args[1];
-        int N = Integer.parseInt(args[2]);
-        int T = Integer.parseInt(args[3]);
+        String algo1 = args[0]; // name of the first algo to be compared
+        String algo2 = args[1]; // second algo to be compared
+        int N = Integer.parseInt(args[2]); // size of the array to be compared
+        int T = Integer.parseInt(args[3]); // how many times to run the comparison?
         double t1 = timeRandomInput(algo1, N, T);// total for algo1
         double t2 = timeRandomInput(algo2, N, T); // total for algo2
 
