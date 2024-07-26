@@ -37,7 +37,13 @@ public class SortCompare {
         double t1 = timeRandomInput(algo1, N, T);// total for algo1
         double t2 = timeRandomInput(algo2, N, T); // total for algo2
 
-        StdOut.printf("For %d random Double \n %s is ", N, algo1); 
-        StdOut.printf(" %.1f times faster than %s \n", t2/t1, algo2); 
+        StdOut.printf("For %d random Double \n%s is ", N, algo1); 
+        StdOut.printf("%.1f times faster than %s \n", t2/t1, algo2); 
+        
+        // Sample input 
+        // $ java-algs4 SortCompare Selection Insertion 2000 1000
+        // Sample output 
+        // For 2000 random Double 
+        // Selection is  1.4 times faster than Insertion
     }
 }
