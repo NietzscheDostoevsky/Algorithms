@@ -64,3 +64,36 @@ public class Percolation {
     public static void main(String[] args)
 }
 
+Corner cases.  
+By convention, the row and column indices are integers between 1 and n, where (1, 1) is the upper-left site: 
+    Throw an IllegalArgumentException if any argument to open(), isOpen(), or isFull() is outside its prescribed range. 
+    Throw an IllegalArgumentException in the constructor if n ≤ 0.
+
+Performance requirements.  
+The constructor must take time proportional to n2; 
+    all instance methods must take constant time plus a constant number of calls to union() and find().
+
+To perform a series of computational experiments, create a data type PercolationStats with the following API.
+
+public class PercolationStats {
+
+    // perform independent trials on an n-by-n grid
+    public PercolationStats(int n, int trials)
+
+    // sample mean of percolation threshold
+    public double mean()
+
+    // sample standard deviation of percolation threshold
+    public double stddev()
+
+    // low endpoint of 95% confidence interval
+    public double confidenceLo()
+
+    // high endpoint of 95% confidence interval
+    public double confidenceHi()
+
+   // test client (see below)
+   public static void main(String[] args)
+
+}
+
