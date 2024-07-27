@@ -39,6 +39,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../../.." />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Shell.java" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="OptimizeOnSaveOptions">
     <option name="myRunOnSave" value="true" />
   </component>
@@ -99,7 +102,7 @@
     "settings.editor.selected.configurable": "preferences.lookFeel"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.Shell">
+  <component name="RunManager" selected="Application.Insertion">
     <configuration name="HelloWorld" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="HelloWorld" />
       <module name="Algorithms, Part I" />
@@ -108,6 +111,7 @@
     <configuration name="Insertion" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Insertion" />
       <module name="Algorithms, Part I" />
+      <option name="PROGRAM_PARAMETERS" value="&lt; tiny.txt" />
       <method v="2" />
     </configuration>
     <configuration name="Shell" type="Application" factoryName="Application">
@@ -119,7 +123,7 @@
     <configuration name="SortCompare" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="SortCompare" />
       <module name="Algorithms, Part I" />
-      <option name="PROGRAM_PARAMETERS" value="Merge Insertion 10000 100" />
+      <option name="PROGRAM_PARAMETERS" value="/tiny.txt" />
       <method v="2" />
     </configuration>
     <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -131,6 +135,13 @@
     <configuration default="true" type="Application" factoryName="Application">
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Application.HelloWorld" />
+      <item itemvalue="Application.Shell" />
+      <item itemvalue="Application.SortCompare" />
+      <item itemvalue="Application.Insertion" />
+      <item itemvalue="Application.Test" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Insertion" />

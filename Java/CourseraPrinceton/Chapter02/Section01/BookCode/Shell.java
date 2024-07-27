@@ -4,7 +4,7 @@ import edu.princeton.cs.algs4.StdOut;
 @SuppressWarnings({ "rawtypes", "deprecation", "unchecked" })
 public class Shell {
     // Sort a[] into increasing order, using ShellSort algorithm
-    @SuppressWarnings("rawtypes")
+    @SuppressWarnings({ "rawtypes", "checkstyle:SuppressWarnings" })
     public static void sort(Comparable[] a) {
         int N = a.length;
         int h = 1;
