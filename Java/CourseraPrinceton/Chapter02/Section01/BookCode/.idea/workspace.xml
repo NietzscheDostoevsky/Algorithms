@@ -102,52 +102,17 @@
     "settings.editor.selected.configurable": "preferences.lookFeel"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.Insertion">
-    <configuration name="HelloWorld" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="HelloWorld" />
-      <module name="Algorithms, Part I" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Insertion" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Insertion" />
-      <module name="Algorithms, Part I" />
-      <option name="PROGRAM_PARAMETERS" value="&lt; tiny.txt" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager">
     <configuration name="Shell" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="Shell" />
       <module name="Algorithms, Part I" />
-      <option name="PROGRAM_PARAMETERS" value="&lt; tiny.txt" />
-      <method v="2" />
-    </configuration>
-    <configuration name="SortCompare" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="SortCompare" />
-      <module name="Algorithms, Part I" />
-      <option name="PROGRAM_PARAMETERS" value="/tiny.txt" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Test" />
-      <module name="Algorithms, Part I" />
-      <option name="PROGRAM_PARAMETERS" value="f" />
+      <option name="REDIRECT_INPUT" value="true" />
+      <option name="INPUT_FILE" value="tiny.txt" />
       <method v="2" />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <method v="2" />
     </configuration>
-    <list>
-      <item itemvalue="Application.HelloWorld" />
-      <item itemvalue="Application.Shell" />
-      <item itemvalue="Application.SortCompare" />
-      <item itemvalue="Application.Insertion" />
-      <item itemvalue="Application.Test" />
-    </list>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.Insertion" />
-        <item itemvalue="Application.Test" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="project-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
