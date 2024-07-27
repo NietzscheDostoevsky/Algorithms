@@ -97,3 +97,29 @@ public class PercolationStats {
 
 }
 
+Throw an IllegalArgumentException in the constructor if either n ≤ 0 or trials ≤ 0.
+Also, include a main() method that takes two command-line arguments n and T, 
+    performs T independent computational experiments (discussed above) on an n-by-n grid, 
+    and prints the sample mean, sample standard deviation, 
+    and the 95% confidence interval for the percolation threshold.
+
+Analysis of running time and memory usage (optional and not graded). Implement the Percolation data type using the quick find algorithm in QuickFindUF.
+
+Use Stopwatch to measure the total running time of PercolationStats for various values of n and T. How does doubling n affect the total running time? 
+    How does doubling T affect the total running time? Give a formula 
+    (using tilde notation) of the total running time on your computer (in seconds) as a single function of both n and T.
+Using the 64-bit memory-cost model from lecture, 
+    give the total memory usage in bytes (using tilde notation) 
+    that a Percolation object uses to model an n-by-n percolation system. 
+    Count all memory that is used, including memory for the union–find data structure.
+Now, implement the Percolation data type using the weighted quick union algorithm in WeightedQuickUnionUF. 
+Answer the questions in the previous paragraph.
+
+Web submission. 
+Submit a .zip file containing only Submit only Percolation.java (
+    using the weighted quick-union algorithm from WeightedQuickUnionUF) 
+    and PercolationStats.java. We will supply algs4.jar. 
+    Your submission may not call library functions except those in 
+    StdIn, StdOut, StdRandom, StdStats, WeightedQuickUnionUF, and java.lang.
+
+For fun. Create your own percolation input file and share it in the discussion forums. For some inspiration, do an image search for “nonogram puzzles solved.”
