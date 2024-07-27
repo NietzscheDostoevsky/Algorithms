@@ -87,21 +87,26 @@
     <option name="sortByType" value="true" />
     <option name="sortKey" value="BY_TYPE" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/lfsvm/Documents/GitHub/Algorithms/Java/CourseraPrinceton/Module01/hello&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "/home/lfsvm/Documents/GitHub/Algorithms/Java/CourseraPrinceton/Chapter02/Section01/BookCode",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0"
   }
-}</component>
-  <component name="RunManager" selected="Application.Test">
+}]]></component>
+  <component name="RunManager" selected="Application.Insertion">
     <configuration name="HelloWorld" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="HelloWorld" />
+      <module name="Algorithms, Part I" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Insertion" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Insertion" />
       <module name="Algorithms, Part I" />
       <method v="2" />
     </configuration>
@@ -116,6 +121,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Insertion" />
         <item itemvalue="Application.Test" />
       </list>
     </recent_temporary>
