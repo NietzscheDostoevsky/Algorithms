@@ -99,7 +99,7 @@
     "settings.editor.selected.configurable": "preferences.lookFeel"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.SortCompare">
+  <component name="RunManager" selected="Application.Shell">
     <configuration name="HelloWorld" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="HelloWorld" />
       <module name="Algorithms, Part I" />
@@ -110,10 +110,16 @@
       <module name="Algorithms, Part I" />
       <method v="2" />
     </configuration>
+    <configuration name="Shell" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="Shell" />
+      <module name="Algorithms, Part I" />
+      <option name="PROGRAM_PARAMETERS" value="&lt; tiny.txt" />
+      <method v="2" />
+    </configuration>
     <configuration name="SortCompare" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="SortCompare" />
       <module name="Algorithms, Part I" />
-      <option name="PROGRAM_PARAMETERS" value="Insertion Quick 1000 100" />
+      <option name="PROGRAM_PARAMETERS" value="Merge Insertion 10000 100" />
       <method v="2" />
     </configuration>
     <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -177,5 +183,22 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
     </layout>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="false" />
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

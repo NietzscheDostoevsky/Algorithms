@@ -19,7 +19,7 @@ public class Shell {
                     exch(a, j, j - h);
                 }
             }
-            h = h - 3;
+            h = h / 3;
         }
     }
 
