@@ -42,7 +42,10 @@ public class SortCompare {
         int T = Integer.parseInt(args[3]); // how many times to run the comparison?
         double t1 = timeRandomInput(algo1, N, T); // total for algo1
         double t2 = timeRandomInput(algo2, N, T); // total for algo2
-
+        
+        StdOut.printf("Time taken for %s is : %f \n", algo1, t1);
+        StdOut.printf("Time taken for %s is : %f \n", algo2, t2);
+        StdOut.println("-----------------------------------------");
         StdOut.printf("For %d random Double \n%s is ", N, algo1);
         StdOut.printf("%.1f times faster than %s \n", t2 / t1, algo2);
 
