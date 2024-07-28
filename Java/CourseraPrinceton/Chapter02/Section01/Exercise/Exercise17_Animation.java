@@ -12,27 +12,29 @@ implement a show() method that clears the canvas and draws the bars.
 */
 
 
+import edu.princeton.cs.algs4.Shell;
 import edu.princeton.cs.algs4.StdDraw;
 import edu.princeton.cs.algs4.StdRandom;
 
-@SuppressWarnings({ "unchecked", "rawtype" })
+
+@SuppressWarnings({ "unchecked", "rawtype", "deprecated" })
 public class Exercise17_Animation {
     public static void main(String[] args) {
 
         int N = 20; // Array size
         Comparable[] array = new Comparable[N];
 
-        // initizlise the array with random double values.
+        // initialize the array with random double values.
         for (int i = 0; i < N; i++) {
             double value = StdRandom.uniform();
             array[i] = value;
         }
 
-        // Setting cavas size
+        // Setting canvas size
         StdDraw.setCanvasSize(30 * (N + 3), 90);
         StdDraw.setXScale(-0.5, N / 3 + 1);
         StdDraw.setYScale(0, 2);
 
-
+        Shell.sort(array);
     }
 }
