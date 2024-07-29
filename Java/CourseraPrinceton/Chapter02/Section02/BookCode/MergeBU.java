@@ -7,6 +7,7 @@
 package Section02.BookCode;
 import edu.princeton.cs.algs4.In;
 
+@SuppressWarnings({ "rawtypes", "deprecation", "unchecked" })
 public class MergeBU {
 
 	private static Comparable[] aux; // auxilary array for merges. 
@@ -31,6 +32,10 @@ public class MergeBU {
 		}
 	}
 
+	private static boolean less(Comparable v, Comparable w) {
+		return v.compareTo(w); 
+	}
+
 	public static void sort(Comparable[] a) {
 		int N = a.length; 
 		aux = new Comparable[N]; 
@@ -39,5 +44,26 @@ public class MergeBU {
 				merge(a, lo, lo+sz-1, Math.min(lo+sz+sz-1, N-1)); 
 	}
 
+
+	// Main and helper methods to check if array is sorted or not. 
+	public static boolean isSorted(Comparable[] a) {
+		for (int i = 1; i < a.length; i++) 
+			if (less(a[i], a[i-1]))
+				return false;
+		return true; 
+	}
+
+	private static void show(Comparable[] a) {
+		for (int i = 0; i < a.length; i++) 
+			StdOut.print(a[i] + " ");
+		StdOut.println(); 
+	}
+
+	public static void main(String[] args) {
+		String[] a = In.readStrings(); 
+		sort(a); 
+		assert isSorted(a); 
+		show(a); 
+	}
 
 }
