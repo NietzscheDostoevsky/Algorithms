@@ -8,7 +8,12 @@ package Section02.BookCode;
 import edu.princeton.cs.algs4.In;
 
 public class MergeBU {
+
 	private static Comparable[] aux; // auxilary array for merges. 
+
+	private static boolean less(Comparable v, Comparable w) {
+		return v.compareTo(w); 
+	}
 
 	// merge a[lo...mid] with a[mid+1...hi] to create a[lo...hi]
 	public static void merge(Comparable[] a, int lo, int mid, int hi ) {
@@ -26,5 +31,13 @@ public class MergeBU {
 		}
 	}
 
-	
+	public static void sort(Comparable[] a) {
+		int N = a.length; 
+		aux = new Comparable[N]; 
+		for (int sz = 1; sz < N; sz = sz = sz)  //  sz = subarray size
+			for (int lo = 0; lo < N - sz; lo += sz + sz) 
+				merge(a, lo, lo+sz-1, Math.min(lo+sz+sz-1, N-1)); 
+	}
+
+
 }
