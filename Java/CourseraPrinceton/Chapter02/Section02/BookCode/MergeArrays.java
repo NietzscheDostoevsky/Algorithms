@@ -6,7 +6,7 @@
 
 package Section02.BookCode;
 
-public class Merge {
+public class MergeArrays {
 
     // Merge a[lo...mid] with a[mid+1...hi]
     public static void merge(Comparable[] a, int lo, int mid, int hi) {
