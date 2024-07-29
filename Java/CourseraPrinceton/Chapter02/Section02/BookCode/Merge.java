@@ -28,14 +28,22 @@ public class Merge {
             }
             else if (less(aux[j], aux[i])) {
                 a[k] = aux[j++]; // current key on right less than current key on left,
-                // take from the right
+                                 // take from the right
             }
             else {
-                a[k]
-                        = aux[i++]; // current key on the right greater than or equal to current key on left
-                // take from the left.
+                a[k] = aux[i++]; // current key on the right greater than or equal to current key on left
+                                 // take from the left.
             }
         }
+
+        // for (int k = lo; k <= hi; k++) { // outer loop to iterate through the array
+        //     if                       (i > mid) a[k] = aux[j++]; // left half exhausted, take from the right
+        //     else if                   (j > hi) a[k] = aux[i++]; // right half exhausted, take from the left
+        //     else if (less(aux[j], aux[i]))     a[k] = aux[j++]; // current key on right less than current key on left,
+        //                                                     // take from the right
+        //     else                               a[k] = aux[i++]; // current key on the right greater than or equal to current key on left
+        //                                                     // take from the left.
+        // }
     }
 
 }
