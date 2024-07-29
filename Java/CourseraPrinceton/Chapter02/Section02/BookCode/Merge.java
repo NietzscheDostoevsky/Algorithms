@@ -5,8 +5,7 @@
  **************************************************************************** */
 
 package Section02.BookCode;
-
-import static Section02.BookCode.MergeArrays.merge;
+import edu.princeton.cs.algs4.In;
 
 public class Merge {
 
@@ -43,11 +42,26 @@ public class Merge {
         for (int k = lo; k <= hi; k++) { // outer loop to iterate through the array
             if                       (i > mid) a[k] = aux[j++]; // left half exhausted, take from the right
             else if                   (j > hi) a[k] = aux[i++]; // right half exhausted, take from the left
-            else if (less(aux[j], aux[i]))     a[k] = aux[j++]; // current key on right less than current key on left,
-                                                            // take from the right
-            else                               a[k] = aux[i++]; // current key on the right greater than or equal to current key on left
-                                                            // take from the left.
+            else if (less(aux[j], aux[i]))     a[k] = aux[j++]; // current key on right less than current key on left,take from the right
+            else                               a[k] = aux[i++]; // current key on the right greater than or equal to current key on left take from the left.
         }
+    }
+
+    public static boolean isSorted(Comparable[] a) {
+        // tests weather the entries in an array are sorted or not.
+        for (int i = 1; i < a.length; i++)
+            if (less(a[i], a[i - 1]))
+                return false;
+        return true;
+    }
+
+    public static void main(String[] args) {
+        // Read strings from standard input, sort them, and print.
+
+        String[] a = In.readStrings();
+        sort(a);
+        assert isSorted(a);
+        show(a);
     }
 
 }
