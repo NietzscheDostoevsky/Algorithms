@@ -9,25 +9,6 @@ import edu.princeton.cs.algs4.In;
 
 public class Merge {
 
-    private staic Comparable[] aux; // auxillary array for merges.
-
-    // sort array a in ascending order
-    public static void sort(Comparable[] a) {
-        int N = a.length;
-        aux = new Comparable[N]; // Allocating space just once.
-        sort(a, 0, N-1);
-    }
-
-    // Overload the sort method with Top Down mergesort algo
-    private static void sort(Comparable[] a, int lo, int hi) {
-        // Sort a[lo...hi]
-        if (hi <= lo) return; // base case
-        int mid = lo + (hi - lo) / 2;
-        sort(a, lo, mid); // sort the left half
-        sort(a, mid + 1, hi); // sort the right half
-        merge(a, lo, mid, hi); // merge results
-    }
-
     // Merge a[lo...mid] with a[mid+1...hi]
     public static void merge(Comparable[] a, int lo, int mid, int hi) {
 
@@ -47,6 +28,8 @@ public class Merge {
         }
     }
 
+    
+
     public static boolean isSorted(Comparable[] a) {
         // tests weather the entries in an array are sorted or not.
         for (int i = 1; i < a.length; i++)
@@ -54,6 +37,27 @@ public class Merge {
                 return false;
         return true;
     }
+
+    private staic Comparable[] aux; // auxillary array for merges.
+
+    // sort array a in ascending order
+    public static void sort(Comparable[] a) {
+        int N = a.length;
+        aux = new Comparable[N]; // Allocating space just once.
+        sort(a, 0, N-1);
+    }
+
+    // Overload the sort method with Top Down mergesort algo
+    private static void sort(Comparable[] a, int lo, int hi) {
+        // Sort a[lo...hi]
+        if (hi <= lo) return; // base case
+        int mid = lo + (hi - lo) / 2;
+        sort(a, lo, mid); // sort the left half
+        sort(a, mid + 1, hi); // sort the right half
+        merge(a, lo, mid, hi); // merge results
+    }
+
+    
 
     public static void main(String[] args) {
         // Read strings from standard input, sort them, and print.
