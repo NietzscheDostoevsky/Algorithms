@@ -5,16 +5,12 @@
  **************************************************************************** */
 
 package Section02.BookCode;
-import edu.princeton.cs.algs4.In;
+import edu.princeton.cs.algs4.*;
 
 @SuppressWarnings({ "rawtypes", "deprecation", "unchecked" })
 public class MergeBU {
 
 	private static Comparable[] aux; // auxilary array for merges. 
-
-	private static boolean less(Comparable v, Comparable w) {
-		return v.compareTo(w); 
-	}
 
 	// merge a[lo...mid] with a[mid+1...hi] to create a[lo...hi]
 	public static void merge(Comparable[] a, int lo, int mid, int hi ) {
@@ -33,7 +29,7 @@ public class MergeBU {
 	}
 
 	private static boolean less(Comparable v, Comparable w) {
-		return v.compareTo(w); 
+		return v.compareTo(w) < 0; 
 	}
 
 	public static void sort(Comparable[] a) {
