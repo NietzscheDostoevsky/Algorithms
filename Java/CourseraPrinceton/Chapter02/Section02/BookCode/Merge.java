@@ -31,7 +31,7 @@ public class Merge {
     }
 
     private static boolean less(Comparable v, Comparable w) {
-        return v.compareTo(w); 
+        return v.compareTo(w) < 0; 
     }
 
     public static boolean isSorted(Comparable[] a) {
