@@ -36,14 +36,33 @@ public class Quick {
 		 * */
 		
 		int i = lo, j = hi + 1; // left and right scan
-		Comparable v = a[lo]; // partitioning item, or the pivot item. 
+
+		// Arbitrararily chosen as starting point. 
+	    // that will go into the final position. 
+		Comparable v = a[lo]; // the pivot item. 
+							 
 		while (true) {
-			// Scan right, scan left, check for scan complete, and exchange. 
+			// The inner while loops are used to increase/decrease the 
+			// value of i and j index to find out which items 
+			// to be exchanged. 
+			
+			// we scan from the left end of the array until we find an entry
+			// grater than or equal to the partitioning item
 			while (less(a[++i], v)) if (i == j) break; 
-			while (less(v, a[--j])) if (i > j) break; 
+			//scan from the right end of the array until we find an entry 
+			// less than or equal to the partitioning item. 
+			while (less(v, a[--j])) if (i == j) break; 
+			// main while looop exists when scan indices i and j cross. 
 			if (i >=j) break; 
-			exch(a, i, j); 
+			// exchange to maintain the following invariant : 
+			// no entries to the left of i are greater than v and 
+			// no entries to the right of j are smaller than v
+			exch(a, i, j);  
 		}
+
+		//When the scan indices cross, we are exchanging the partitioning item
+		// a[lo] with the rightmose subarray(a[j]) and returning its 
+		// index j. 
 		exch(a, lo, j); 
 		return j;
 	}
@@ -56,13 +75,9 @@ public class Quick {
 	}
 
 	private static boolean less(Comparable v, Comparable w) {
-		
 		return v.compareTo(w) < 0;
 	}
 
-	
-
-	
 	public static void main(String[] args) {
 		String[] a = In.readStrings();
 		sort(a); 
