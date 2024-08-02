@@ -14,6 +14,18 @@ public class Quick3way {
 	// Recursive quicksort algo
 	private static void sort(Comparable[] a, int lo, int hi) {
 		
+		if (hi <= lo) return ; 
+		int lt = lo
+		int i = lo + 1;
+		int gt = hi; 
+
+		Comparable v = a[lo]; 
+		while (i <= gt) {
+			int cmp = a[i].compareTo(v); 
+			if 		(cmp < 0) exch(a, lt++, i++); 
+			else if (cmp > 0) exch(a, i, gt--); 
+			else 	i++; 
+		}
 		
 	}
 	
@@ -23,7 +35,7 @@ public class Quick3way {
 		a[j] = temp; 
 		
 	}
-	
+
 	public static void main(String[] args) {
 		String[] a = In.readStrings();
 		sort(a); 
