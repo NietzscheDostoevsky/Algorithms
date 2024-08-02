@@ -17,7 +17,7 @@
  *     still save it to a file
  *
  ******************************************************************************/
-
+import edu.princeton.cs.algs4.*;
 
 public class QuickBars {
     private static int rows;
