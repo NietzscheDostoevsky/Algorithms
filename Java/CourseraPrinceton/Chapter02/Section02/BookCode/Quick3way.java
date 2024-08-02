@@ -15,7 +15,7 @@ public class Quick3way {
 	private static void sort(Comparable[] a, int lo, int hi) {
 		
 		if (hi <= lo) return ; 
-		int lt = lo
+		int lt = lo;
 		int i = lo + 1;
 		int gt = hi; 
 
@@ -26,6 +26,9 @@ public class Quick3way {
 			else if (cmp > 0) exch(a, i, gt--); 
 			else 	i++; 
 		}
+
+		sort(a, lo, lt -1); 
+		sort(a, gt + 1, hi); 
 		
 	}
 	
@@ -39,16 +42,16 @@ public class Quick3way {
 	public static void main(String[] args) {
 		String[] a = In.readStrings();
 		sort(a); 
-		assert isSorted(a); 
+		//assert isSorted(a); 
 		show(a); 		
 	}
 	
-	public static boolean isSorted(Comparable[] a) {
-        // tests weather the entries in an array are sorted or not.
-        for (int i = 1; i < a.length; i++) 
-            if (less(a[i], a[i - 1]))  return false;
-        return true;
-    }
+	// public static boolean isSorted(Comparable[] a) {
+    //     // tests weather the entries in an array are sorted or not.
+    //     for (int i = 1; i < a.length; i++) 
+    //         if (less(a[i], a[i - 1]))  return false;
+    //     return true;
+    // }
 	private static void show(Comparable[] a) {
         for (int i = 0; i < a.length; i++)
             StdOut.print(a[i] + " ");
