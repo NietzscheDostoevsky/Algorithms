@@ -22,13 +22,18 @@ public class Quick3way {
 
     // Recursive quicksort algo
     private static void sort(Comparable[] a, int lo, int hi) {
-
+        // for a single call to this method, the item is fixed. 
+        // and by the end of this subroutine, it will be placed at its 
+        // final position in the sorted array. 
+        
         /* Single left to right pass through the array
         Maintain pointers such that 
             lt: a[lo...lt-1] is less than v
             gt: a[gt+1, hi] is greater than v
             i: a[lt...i-1] are equal to v and a[i...gt] not yet examined. 
         */
+
+
         if (hi <= lo) return; 
         int lt = lo;
         int i = lo + 1;
