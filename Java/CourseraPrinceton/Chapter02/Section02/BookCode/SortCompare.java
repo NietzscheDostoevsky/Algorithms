@@ -11,11 +11,12 @@ public class SortCompare {
         Stopwatch timer = new Stopwatch();
         if (algo.equals("Insertion")) Insertion.sort(a);
         if (algo.equals("Selection")) Selection.sort(a);
-        if (algo.equals("Shell ")) Shell.sort(a);
+        if (algo.equals("Shell")) Shell.sort(a);
         if (algo.equals("Merge")) Merge.sort(a);
         if (algo.equals("Quick")) Quick.sort(a);
         if (algo.equals("Heap")) Heap.sort(a);
         if (algo.equals("Quick3way")) Quick3way.sort(a);
+        
 
         return timer.elapsedTime();
 
