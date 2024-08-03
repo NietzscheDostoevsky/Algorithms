@@ -2,7 +2,7 @@ import edu.princeton.cs.algs4.Heap;
 import edu.princeton.cs.algs4.Merge;
 import edu.princeton.cs.algs4.Quick;
 import edu.princeton.cs.algs4.StdOut;
-import edu.princeton.cs.algs4.StdRandom;
+import edu.princeton.cs.algs4.*;
 
 @SuppressWarnings({ "rawtypes", "deprecation", "unchecked" })
 public class SortCompare {
@@ -16,7 +16,7 @@ public class SortCompare {
         if (algo.equals("Quick")) Quick.sort(a);
         if (algo.equals("Heap")) Heap.sort(a);
         if (algo.equals("Quick3way")) Quick3way.sort(a);
-        
+
 
         return timer.elapsedTime();
 
