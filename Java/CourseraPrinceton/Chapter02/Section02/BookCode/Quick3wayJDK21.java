@@ -1,10 +1,10 @@
 import java.util.Arrays;
 import java.util.Collections;
 
-public class Quick3way {
+public class Quick3wayJDK21 {
 
     public static void sort(Comparable[] a) {
-        Collections.shuffle(Arrays.asList(a)); // eliminate dependence on input.
+        //Collections.shuffle(Arrays.asList(a)); // eliminate dependence on input.
         sort(a, 0, a.length - 1);
     }
 
