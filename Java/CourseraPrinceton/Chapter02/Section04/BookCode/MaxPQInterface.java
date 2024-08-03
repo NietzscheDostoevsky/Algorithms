@@ -1,4 +1,4 @@
-public interface MaxPQ<Key extends Comparable<Key>> {
+public interface MaxPQInterface<Key extends Comparable<Key>> {
     
     /**
      * Inserts a key into the priority queue.
