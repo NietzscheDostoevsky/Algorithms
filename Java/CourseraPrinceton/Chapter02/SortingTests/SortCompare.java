@@ -1,8 +1,11 @@
 import edu.princeton.cs.algs4.Heap;
+import edu.princeton.cs.algs4.Insertion;
 import edu.princeton.cs.algs4.Merge;
 import edu.princeton.cs.algs4.Quick;
+import edu.princeton.cs.algs4.Selection;
 import edu.princeton.cs.algs4.StdOut;
-import edu.princeton.cs.algs4.*;
+import edu.princeton.cs.algs4.StdRandom;
+import edu.princeton.cs.algs4.Stopwatch;
 
 @SuppressWarnings({ "rawtypes", "deprecation", "unchecked" })
 public class SortCompare {
@@ -12,11 +15,10 @@ public class SortCompare {
         if (algo.equals("Insertion")) Insertion.sort(a);
         if (algo.equals("Selection")) Selection.sort(a);
         if (algo.equals("Shell")) Shell.sort(a);
+        if (algo.equals("ShellNew")) ShellNew.sort(a);
         if (algo.equals("Merge")) Merge.sort(a);
         if (algo.equals("Quick")) Quick.sort(a);
         if (algo.equals("Heap")) Heap.sort(a);
-        if (algo.equals("Quick3way")) Quick3way.sort(a);
-
 
         return timer.elapsedTime();
 
@@ -38,13 +40,16 @@ public class SortCompare {
     }
 
     public static void main(String[] args) {
+        Stopwatch t = new Stopwatch();
         String algo1 = args[0]; // name of the first algo to be compared
         String algo2 = args[1]; // second algo to be compared
         int N = Integer.parseInt(args[2]); // size of the array to be compared
         int T = Integer.parseInt(args[3]); // how many times to run the comparison?
         double t1 = timeRandomInput(algo1, N, T); // total for algo1
         double t2 = timeRandomInput(algo2, N, T); // total for algo2
-        
+
+        double tt = t.elapsedTime();
+        StdOut.printf("Time execution time for main is : %f \n", tt);
         StdOut.printf("Time taken for %s is : %f \n", algo1, t1);
         StdOut.printf("Time taken for %s is : %f \n", algo2, t2);
         StdOut.println("-----------------------------------------");
