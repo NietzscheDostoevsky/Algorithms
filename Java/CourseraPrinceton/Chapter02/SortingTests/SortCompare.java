@@ -1,24 +1,26 @@
-import edu.princeton.cs.algs4.Heap;
-import edu.princeton.cs.algs4.Insertion;
-import edu.princeton.cs.algs4.Merge;
-import edu.princeton.cs.algs4.Quick;
-import edu.princeton.cs.algs4.Selection;
+
 import edu.princeton.cs.algs4.StdOut;
 import edu.princeton.cs.algs4.StdRandom;
-import edu.princeton.cs.algs4.Stopwatch;
+
+// Sample input
+// $ java-algs4 SortCompare Selection Insertion 2000 1000
+// Sample output
+// For 2000 random Double
+// Selection is  1.4 times faster than Insertion
 
 @SuppressWarnings({ "rawtypes", "deprecation", "unchecked" })
 public class SortCompare {
 
     public static double time(String algo, Double[] a) {
         Stopwatch timer = new Stopwatch();
+        //if (algo.equals("Bubble")) Bubble.sort(a);
         if (algo.equals("Insertion")) Insertion.sort(a);
         if (algo.equals("Selection")) Selection.sort(a);
         if (algo.equals("Shell")) Shell.sort(a);
-        if (algo.equals("ShellNew")) ShellNew.sort(a);
         if (algo.equals("Merge")) Merge.sort(a);
         if (algo.equals("Quick")) Quick.sort(a);
-        if (algo.equals("Heap")) Heap.sort(a);
+        if (algo.equals("Quick3way")) Quick.sort(a);
+        //if (algo.equals("Heap")) Heap.sort(a);
 
         return timer.elapsedTime();
 
@@ -56,10 +58,6 @@ public class SortCompare {
         StdOut.printf("For %d random Double \n%s is ", N, algo1);
         StdOut.printf("%.1f times faster than %s \n", t2 / t1, algo2);
 
-        // Sample input
-        // $ java-algs4 SortCompare Selection Insertion 2000 1000
-        // Sample output
-        // For 2000 random Double
-        // Selection is  1.4 times faster than Insertion
+        
     }
 }
