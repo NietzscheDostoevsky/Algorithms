@@ -9,7 +9,7 @@ import edu.princeton.cs.algs4.In;
 
 public class Merge {
 
-    private staic Comparable[] aux; // auxillary array for merges.
+    private static Comparable[] aux; // auxillary array for merges.
 
     // Merge a[lo...mid] with a[mid+1...hi]
     public static void merge(Comparable[] a, int lo, int mid, int hi) {
@@ -31,7 +31,7 @@ public class Merge {
     }
 
     private static boolean less(Comparable v, Comparable w) {
-        return v.compareTo(w); 
+        return v.compareTo(w);
     }
 
     public static boolean isSorted(Comparable[] a) {
@@ -42,7 +42,7 @@ public class Merge {
         return true;
     }
 
-    
+
 
     // sort array a in ascending order
     public static void sort(Comparable[] a) {
@@ -61,7 +61,7 @@ public class Merge {
         merge(a, lo, mid, hi); // merge results
     }
 
-    
+
 
    public static void main(String[] args) {
         String[] a = In.readStrings();
