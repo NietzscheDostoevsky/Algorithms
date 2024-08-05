@@ -6,9 +6,7 @@
     <option name="thirdPartyClasspath">
       <option value="$PROJECT_DIR$/.lift/checkstyle-lift.jar" />
     </option>
-    <option name="activeLocationIds">
-      <option value="84cb1109-717e-4aa0-83c1-f6b9a59d2e93" />
-    </option>
+    <option name="activeLocationIds" />
     <option name="locations">
       <list>
         <ConfigurationLocation id="bundled-sun-checks" type="BUNDLED" scope="All" description="Sun Checks">(bundled)</ConfigurationLocation>
