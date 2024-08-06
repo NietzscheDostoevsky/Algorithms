@@ -24,8 +24,13 @@ public interface IndexMinPQInterface<Item extends Comparable<Item>> {
 	*/
 
 	// insert item, associate it with k
-	void insert(int k, Item item) ; 
+	void insert(int k, Item item); 
 
 	// change the item associated with k to item
-	void change
+	void change(int k, Item item); 
+
+	// is k associated with some item
+	boolean contains(int k); 
+
+	// 
 }
