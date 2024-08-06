@@ -22,11 +22,18 @@ public class MaxPQ<Key extends Comparable<Key>>  {
         return N;
     }
 
+    // We add the new key at the end of the array, increament the size 
+    // of the heap, and then swim up through the heap with that key
+    // to restore the heap condition.
     public void insert(Key v) {
         pq[++N] = v;
         swim(N);
     }
 
+    // We take the largest key off the top, put the item from the end 
+    // of the heap at the top, decrement the size of the heap
+    // and then sink down throught the heap with that key to restore
+    // the heap condition. 
     public Key delMax() {
         Key max = pq[1]; // Retrieve max key from top.
         exch(1, N--); // Exchange with last item.
@@ -79,7 +86,4 @@ public class MaxPQ<Key extends Comparable<Key>>  {
             k = j;
         }
     }
-
-
-
 }
