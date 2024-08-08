@@ -5,7 +5,7 @@ import edu.princeton.cs.algs4.StdOut;
 import java.util.Arrays;
 import java.util.Comparator;
 
-public class Transaction2 implements Comparable<Transaction> {
+public class Transaction implements Comparable<Transaction> {
     private final String  who;      // customer
     private final Date when;     // date
     private final double  amount;   // amount
@@ -75,8 +75,7 @@ public class Transaction2 implements Comparable<Transaction> {
         }
     }
 
-    public static class cmd
-     implements Comparator<Transaction> {
+    public static class WhenOrder implements Comparator<Transaction> {
 
         @Override
         public int compare(Transaction v, Transaction w) {
@@ -118,6 +117,7 @@ public class Transaction2 implements Comparable<Transaction> {
 
         StdOut.println("Sort by amount");
         Arrays.sort(a,(o1,o2)->o1.amount-o2.amount);
+        //Arrays.sort(a, (o1, o2) -> Double.compare(o1.amount, o2.amount));
         for (int i = 0; i < a.length; i++)
             StdOut.println(a[i]);
         StdOut.println();
