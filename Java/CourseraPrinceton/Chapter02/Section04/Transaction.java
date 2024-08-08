@@ -116,8 +116,12 @@ public class Transaction implements Comparable<Transaction> {
         StdOut.println();
 
         StdOut.println("Sort by amount");
-        Arrays.sort(a,(o1,o2)->o1.amount-o2.amount);
-        //Arrays.sort(a, (o1, o2) -> Double.compare(o1.amount, o2.amount));
+        //Arrays.sort(a,(o1,o2)->o1.amount-o2.amount);
+        // the avove line won't work becuase the compare method in the 
+        // comaprator interface is defined as  int compare(T o1, T o2);
+        // so the lambda function here must return a int value, instead of a double. 
+        Arrays.sort(a, (o1, o2) -> Double.compare(o1.amount, o2.amount));
+
         for (int i = 0; i < a.length; i++)
             StdOut.println(a[i]);
         StdOut.println();
