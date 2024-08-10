@@ -3,14 +3,15 @@ import edu.princeton.cs.algs4.*;
 public class Multiway {
 	public static void merge(In[] streams) {
 		int N = streams.length; 
-		IndexMinPq<String> pq = new IndexMinPq<String>(N); 
+		IndexMinPQ<String> pq = new IndexMinPQ<String>(N); 
 
 		for (int i = 0; i < N; i++) 
 			if (!streams[i].isEmpty())
 				pq.insert(i, streams[i].readString());
 
 		while (!pq.isEmpty()) {
-			StdOut.println(pq.min());
+			StdOut.println(pq.minKey());
+			int i = pq.delMin();
 			if (!streams[i].isEmpty())
 				pq.insert(i, streams[i].readString());
 		}		
@@ -25,3 +26,4 @@ public class Multiway {
 		merge(streams);
 	}
 }
+
