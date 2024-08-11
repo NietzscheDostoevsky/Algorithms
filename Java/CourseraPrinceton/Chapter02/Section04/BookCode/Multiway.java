@@ -1,11 +1,13 @@
-import edu.princeton.cs.algs4.*; 
+import edu.princeton.cs.algs4.In;
+import edu.princeton.cs.algs4.IndexMinPQ;
+import edu.princeton.cs.algs4.StdOut;
 
 public class Multiway {
 	public static void merge(In[] streams) {
-		int N = streams.length; 
-		IndexMinPQ<String> pq = new IndexMinPQ<String>(N); 
+		int N = streams.length;
+		IndexMinPQ<String> pq = new IndexMinPQ<String>(N);
 
-		for (int i = 0; i < N; i++) 
+		for (int i = 0; i < N; i++)
 			if (!streams[i].isEmpty())
 				pq.insert(i, streams[i].readString());
 
@@ -14,7 +16,7 @@ public class Multiway {
 			int i = pq.delMin();
 			if (!streams[i].isEmpty())
 				pq.insert(i, streams[i].readString());
-		}		
+		}
 	}
 
 	public static void main(String[] args) {
