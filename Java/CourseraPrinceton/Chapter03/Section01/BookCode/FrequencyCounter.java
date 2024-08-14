@@ -7,6 +7,7 @@ public class FrequencyCounter {
         int minlen = Integer.parseInt(args[0]); // key-length curoff. 
         ST<String, Integer> st = new ST<String, Integer>(); 
 
+        Stopwatch timer = new Stopwatch();
         //Build the symbol table and count frequencies. 
         while (!StdIn.isEmpty()) {
             String word = StdIn.readString(); 
@@ -22,5 +23,6 @@ public class FrequencyCounter {
             if (st.get(word) > st.get(max))
                 max = word;
         StdOut.println(max + " " + st.get(max));
+        StdOut.println("Time take : " + timer.elapsedTime() + " seconds");
     }
 }
