@@ -20,11 +20,11 @@ public class BinarySearchST<Key extends Comparable<Key>, Value> {
     public BinarySearchST(int capacity) {
         // Standard array resizing code to be updated later .
         
-        keys = (Key[]) new Comparable[capacity];
+        keys = (Key[]) new Comparable[capacity]; // can'tmake generic arrays
         vals = (Value[]) new Object[capacity];
     }
 
-    public int size() {return N};
+    public int size() {return N;};
     
     
     public Value get(Key key) {
@@ -66,7 +66,7 @@ public class BinarySearchST<Key extends Comparable<Key>, Value> {
             vals[i] = val; 
             return ;
        }
-       for (int i = N; j > i; j--) {
+       for (int j = N; j > i; j--) {
             keys[j] = key; 
             vals[j] = val;
             N++;
