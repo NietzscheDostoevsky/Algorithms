@@ -5,6 +5,10 @@
  * Array-resizing code is omitted here 
  */
 
+ // Complete implementation of an ordered Symbol Table.
+
+ // BINARY SEARCH SYMBOL TABLE (ORDERED)
+
 import java.util.Queue;
 
 @SuppressWarnings("unchecked")
@@ -22,13 +26,21 @@ public class BinarySearchST<Key extends Comparable<Key>, Value> {
 
     public int size() {return N};
     
+    
     public Value get(Key key) {
         if (isEmpty()) return null; 
+
+        // the rank tells us precisely where the key is
+        // to be found if it is in the table (and, if it is not there, 
+        // that it is not in the table).
         int i = rank(key); 
         if (i < N && keys[i].compareTo(key) == 0) return vals[i];
         else                                      return null; 
     }
 
+    // The heart of this implementation is this rank() method, 
+    // which returns the number
+    // of keys smaller than a given key.
     public int rank(Key key) {
         int lo = 0; 
         int hi = N -1; 
@@ -45,6 +57,10 @@ public class BinarySearchST<Key extends Comparable<Key>, Value> {
 
      // Search for key. Update value if found; grow table if new. 
     public void put(Key key, Value val) {
+
+       // the rank tells us precisely where to update the 
+       // value when the key is in the
+       // table, and precisely where to put the key when the key is not in the table. 
        int i = rank(key); 
        if (i < N && keys[i].compareTo(key) == 0) {
             vals[i] = val; 
