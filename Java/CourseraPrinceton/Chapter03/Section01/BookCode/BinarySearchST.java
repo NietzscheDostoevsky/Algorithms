@@ -14,7 +14,10 @@ import java.util.NoSuchElementException;
  * Array-resizing code is omitted here 
  */
 
-
+// This implementation gives logarithmic time search gurantee. 
+// rank() is recursive, so lgN + 1 max compares. 
+// min(), max(), select() are contant-time operations. 
+// BUT, put() method is SLOW. 
 
 
 @SuppressWarnings({ "unchecked" })
