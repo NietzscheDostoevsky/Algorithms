@@ -3,6 +3,20 @@ import edu.princeton.cs.algs4.StdOut;
 import edu.princeton.cs.algs4.Queue;
 import java.util.NoSuchElementException; 
 
+// Complete implementation of an ordered Symbol Table.
+
+// BINARY SEARCH SYMBOL TABLE (ORDERED)
+
+/**
+ * This ST implementation keeps the keys and values in parallel arrays. 
+ * The put() implementation moves larger keys one position to the right before 
+ *      growing the table as in the array-based stack implmentation. 
+ * Array-resizing code is omitted here 
+ */
+
+
+
+
 @SuppressWarnings({ "rawtypes", "deprecation", "unchecked" })
 public class BinarySearchST<Key extends Comparable<Key>, Value> {
 	private static final int INIT_CAPACITY = 2; 
@@ -29,8 +43,8 @@ public class BinarySearchST<Key extends Comparable<Key>, Value> {
 	// Resize the underlying arrays
 	private void resize(int capacity) {
 		assert capacity >= n;
-		Key[] tempk = (Key[]) new Comparable[capacity];
-		Value[] tempv = (Value[]) new Comparable[capacity];
+		Key[] tempk = (Key[]) new Comparable[capacity]; // can'tmake generic arrays
+		Value[] tempv = (Value[]) new Comparable[capacity]; // so typecasted
 		for (int i = 0; i < n; i++) {
 			tempk[i] = keys[i];
 			tempv[i] = vals[i];
@@ -80,10 +94,26 @@ public class BinarySearchST<Key extends Comparable<Key>, Value> {
 	public Value get(Key key) {
 		if (key == null) throw new IllegalArgumentException("argument to rank() is null");
 		if (isEmpty()) return null; 
+
+		// the rank tells us precisely where the key is
+        // to be found if it is in the table (and, if it is not there, 
+        // that it is not in the table).
 		int i = rank(key); 
 		if (i < n && keys[i].compareTo(key) == 0) return vals[i]; 
 		return null;
 	}
+
+	// The heart of this implementation is this rank() method, 
+    // which returns the number
+    // of keys smaller than a given key.
+    //
+    // This recursive rank() preserves the
+    // following properties:
+    // ■ If key is in the table, rank() returns its index in the table, which is the same as
+    // the number of keys in the table that are smaller than key.
+    // ■ If key is not in the table, rank() also returns the number of keys in the table
+    // that are smaller than key
+    
 
 	/**
 	 * Returns the number of keys in this symbol table strictky less than {@code key}.
@@ -117,6 +147,8 @@ public class BinarySearchST<Key extends Comparable<Key>, Value> {
 	 * @throws IllegalArgumentException if {@code key} is {@code null}
 	 */
 	public void put(Key key, Value val) {
+		// Search for key. Update value if found; grow table if new.
+
 		if (key == null) throw new IllegalArgumentException("first argument to put() is null");
 
 		if (val == null) {
@@ -124,6 +156,9 @@ public class BinarySearchST<Key extends Comparable<Key>, Value> {
 			return;
 		}
 
+		// the rank tells us precisely where to update the 
+       	// value when the key is in the
+       	// table, and precisely where to put the key when the key is not in the table
 		int i = rank(key);
 
 		// if key is already in the table. 
