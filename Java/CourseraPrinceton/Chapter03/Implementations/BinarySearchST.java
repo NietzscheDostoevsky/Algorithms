@@ -1,3 +1,6 @@
+import edu.princeton.cs.algs4.StdIn;
+import edu.princeton.cs.algs4.StdOut;
+import edu.princeton.cs.algs4.Queue;
 import java.util.NoSuchElementException; 
 
 public class BinarySearchST<Key extends Comparable<Key>, Value> {
@@ -246,15 +249,112 @@ public class BinarySearchST<Key extends Comparable<Key>, Value> {
 	 * @throws NoSuchElementException if {@code key} is {@code null}
 	 */
 
-	 public Key floor(Key key) {
+	public Key floor(Key key) {
 		if (key == null) throw new IllegalArgumentException("Argument to floor() is null"); 
 		int i = rank(key);
 		if (i < n && key.compareTo(keys[i] == 0)) return keys[i];
 		if (i == 0) throw new NoSuchElementException("Argument to floor() is too small");
 		else return keys[i-1];
-	 }
+	}
 
-	 
+	/**
+	 * Returns the smallest key in this table greater than or equal to {@code key}
+	 * 
+	 * @param key the key
+	 * @return the smallest key in this table greater than or equal to {@code key}
+	 * @throws NoSuchElementException if there is no such key
+     * @throws IllegalArgumentException if {@code key} is {@code null}
+	 */
+	public Key ceiling(Key key) {
+		if (key == null) throw new IllegalArgumentException("Argument to ceiling() is null"); 
+		int i = rank(key); 
+		if (i == n) throw new NoSuchElementException("Argument to ceinling is too laearge");
+		else return keys[i];
+	}
 	
+	/**
+     * Returns the number of keys in this symbol table in the specified range.
+     *
+     * @param lo minimum endpoint
+     * @param hi maximum endpoint
+     * @return the number of keys in this symbol table between {@code lo}
+     *         (inclusive) and {@code hi} (inclusive)
+     * @throws IllegalArgumentException if either {@code lo} or {@code hi}
+     *         is {@code null}
+     */
+	public int size(Key lo, Key hi) {
+		if (lo == null) throw new IllegalArgumentException("first argument to size() is null");
+		if (hi == null) throw new IllegalArgumentException("second argumentto size() is null"); 
+
+		if (lo.compareTo(hi) > 0) return 0;
+		if (contains(hi)) 		  return rank(hi) - rank(lo) + 1; 
+		else 			          return rank(hi) - rank(lo);
+	}
+
+	/**
+     * Returns all keys in this symbol table in the given range,
+     * as an {@code Iterable}.
+     *
+     * @param lo minimum endpoint
+     * @param hi maximum endpoint
+     * @return all keys in this symbol table between {@code lo}
+     *         (inclusive) and {@code hi} (inclusive)
+     * @throws IllegalArgumentException if either {@code lo} or {@code hi}
+     *         is {@code null}
+     */
+	public Iterable<Key> keys(Key lo, Key hi) {
+		if (lo == null) throw new IllegalArgumentException("First argument to keys() is null)"); 
+		if (hi == null) throw new IllegalArgumentException("Second argument to keys() is null"); 
+
+		Queue<Key> queue = new Queue<Key>(); 
+		if (lo.compareTo(hi) > 0) return queue;
+		for (int i = rank(lo); i < rank(hi); i++) {
+			queue.enqueue(keys[i]);
+		}
+		if (contains(hi)) queue.enqueue(keys[rank(hi)]);
+		return queue;
+	}
+
+	/***************************************************************************
+    *  Check internal invariants.
+    ***************************************************************************/
+
+	private boolean check() {
+		return isSorted() && rankCheck(); 
+	}
+
+	// Are the items in the array in ascending order ? 
+	private boolean isSorted() {
+		for (int i = 1; i < size(); i++) 
+			if (keys[i].compareTo(keys[i-1]) < 0) 
+				return false;
+		return true; 
+	}
+
+	// check that rank(select(i)) = i
+	private boolean rankCheck() {
+		for (int i = 0; i < size(); i++)
+			if (i != rank(select(i))) return false;
+		for (int i = 0; i < size(); i++)
+			if (keys[i].compareTo(select(rank(keys[i]))) !=0) return false;
+		return true; 
+	}
+
+	/**
+     * Unit tests the {@code BinarySearchST} data type.
+     *
+     * @param args the command-line arguments
+     */
+
+	 public static void main(Strig[] args) {
+		BinarySearchST<String, Integer> st = new BinarySearchST<Integer, String>();
+		for (int i = 0; !StdIn.isEmpty(); i++) {
+			String key = StdIn.readString();
+			st.put(key, i);
+		}
+
+		for (String s : st.keys())
+			StdOut.println(s + " " + st.get(s));
+	 }
 
 }
