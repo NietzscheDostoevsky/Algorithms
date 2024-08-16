@@ -3,6 +3,7 @@ import edu.princeton.cs.algs4.StdOut;
 import edu.princeton.cs.algs4.Queue;
 import java.util.NoSuchElementException; 
 
+@SuppressWarnings({ "rawtypes", "deprecation", "unchecked" })
 public class BinarySearchST<Key extends Comparable<Key>, Value> {
 	private static final int INIT_CAPACITY = 2; 
 	private Key[] keys;
@@ -21,8 +22,8 @@ public class BinarySearchST<Key extends Comparable<Key>, Value> {
 	 * @param capacity the maximum capacity. 
 	 */
 	public BinarySearchST(int capacity) {
-		keys = (Keys[]) new Comparable[capacity];
-		vals = (Vals[]) new Comparable[capacity];
+		keys = (Key[]) new Comparable[capacity];
+		vals = (Value[]) new Comparable[capacity];
 	}
 
 	// Resize the underlying arrays
@@ -94,7 +95,7 @@ public class BinarySearchST<Key extends Comparable<Key>, Value> {
 	public int rank(Key key) {
 		if (key == null) throw new IllegalArgumentException("argument to rank() is null");
 
-		int lo = 0; hi = n-1;
+		int lo = 0, hi = n-1;
 		while (lo <= hi) {
 			int mid = lo + (hi - lo) / 2;
 			int cmp = key.compareTo(keys[mid]);
@@ -126,7 +127,7 @@ public class BinarySearchST<Key extends Comparable<Key>, Value> {
 		int i = rank(key);
 
 		// if key is already in the table. 
-		if (i < n && keys[i].compareTo() == 0) {
+		if (i < n && keys[i].compareTo(key) == 0) {
 			vals[i] = val;
 			return;
 		}
@@ -166,7 +167,7 @@ public class BinarySearchST<Key extends Comparable<Key>, Value> {
 
 		for (int j = i; j < n; j++) {
 			keys[j] = keys[j + 1];
-			vals[j] = keys[j + 1];
+			vals[j] = vals[j + 1];
 		}
 
 		n--;
@@ -252,7 +253,7 @@ public class BinarySearchST<Key extends Comparable<Key>, Value> {
 	public Key floor(Key key) {
 		if (key == null) throw new IllegalArgumentException("Argument to floor() is null"); 
 		int i = rank(key);
-		if (i < n && key.compareTo(keys[i] == 0)) return keys[i];
+		if (i < n && key.compareTo(keys[i]) == 0) return keys[i];
 		if (i == 0) throw new NoSuchElementException("Argument to floor() is too small");
 		else return keys[i-1];
 	}
@@ -290,6 +291,17 @@ public class BinarySearchST<Key extends Comparable<Key>, Value> {
 		if (contains(hi)) 		  return rank(hi) - rank(lo) + 1; 
 		else 			          return rank(hi) - rank(lo);
 	}
+
+	/**
+     * Returns all keys in this symbol table as an {@code Iterable}.
+     * To iterate over all of the keys in the symbol table named {@code st},
+     * use the foreach notation: {@code for (Key key : st.keys())}.
+     *
+     * @return all keys in this symbol table
+     */
+    public Iterable<Key> keys() {
+        return keys(min(), max());
+    }
 
 	/**
      * Returns all keys in this symbol table in the given range,
@@ -346,8 +358,8 @@ public class BinarySearchST<Key extends Comparable<Key>, Value> {
      * @param args the command-line arguments
      */
 
-	 public static void main(Strig[] args) {
-		BinarySearchST<String, Integer> st = new BinarySearchST<Integer, String>();
+	 public static void main(String[] args) {
+		BinarySearchST<String, Integer> st = new BinarySearchST<String, Integer>();
 		for (int i = 0; !StdIn.isEmpty(); i++) {
 			String key = StdIn.readString();
 			st.put(key, i);
