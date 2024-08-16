@@ -11,7 +11,7 @@
 
 import java.util.Queue;
 
-@SuppressWarnings("unchecked")
+@SuppressWarnings("unchecked") 
 public class BinarySearchST<Key extends Comparable<Key>, Value> {
     private Key[] keys; 
     private Value[] vals; 
@@ -41,6 +41,14 @@ public class BinarySearchST<Key extends Comparable<Key>, Value> {
     // The heart of this implementation is this rank() method, 
     // which returns the number
     // of keys smaller than a given key.
+    /* 
+     * This recursive rank() preserves the
+     * following properties:
+     * ■ If key is in the table, rank() returns its index in the table, which is the same as
+     * the number of keys in the table that are smaller than key.
+     * ■ If key is not in the table, rank() also returns the number of keys in the table
+     * that are smaller than key
+     */
     public int rank(Key key) {
         int lo = 0; 
         int hi = N -1; 
