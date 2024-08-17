@@ -56,7 +56,62 @@ public class BST<Key extends Comparable<Key>, Value> {
      * @throws IllegalArgumentException if {@code key} is {@code null}
      */
     public boolean contains(Key key) {
-        
+        if (key == null) throw new IllegalArgumentException("Argument to contains() is null");
+        return get(key) != null;
     }
 
+    /**
+     * Returns the value associated with the given key.
+     *
+     * @param key the key
+     * @return the value associated with the given key if the key is in the symbol table and
+     *          {@code null} if the key is not in the symbol table.
+     * @throws IllegalArgumentException if {@code key} is {@code null}
+     */
+    public Value get(Key key) {
+        return get(root, key);
+    }
+
+    private Value get(Node x, Key key) {
+        if (key == null) throw new IllegalArgumentException("calls get() with a null key");
+        if (x == null) return null;
+        int cmp = key.compareTo(x.key);
+        if      (cmp < 0) return get(x.left, key);
+        else if (cmp > 0) return get(x.right, key);
+        else              return x.val;
+    }
+
+    
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
