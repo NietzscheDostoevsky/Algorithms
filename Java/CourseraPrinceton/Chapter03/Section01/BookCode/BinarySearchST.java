@@ -10,13 +10,13 @@ import java.util.NoSuchElementException;
 /**
  * This ST implementation keeps the keys and values in parallel arrays. 
  * The put() implementation moves larger keys one position to the right before 
- *      growing the table as in the array-based stack implmentation. 
+ *      growing the table as in the array-based stack implementation.
  * Array-resizing code is omitted here 
  */
 
-// This implementation gives logarithmic time search gurantee. 
+// This implementation gives logarithmic time search guarantee.
 // rank() is recursive, so lgN + 1 max compares. 
-// min(), max(), select() are contant-time operations. 
+// min(), max(), select() are constant-time operations.
 // BUT, put() method is SLOW. 
 
 
@@ -28,14 +28,14 @@ public class BinarySearchST<Key extends Comparable<Key>, Value> {
 	private int n = 0;
 
 	/**
-	 *Iniatialize an empty symbol table. 
+	 *Initialize an empty symbol table.
 	 */
 	public BinarySearchST() {
 		this(INIT_CAPACITY);
 	}
 
 	/** 
-	 * Iniatializes an empty symbol table with the specified initial capacity. 
+	 * Initializes an empty symbol table with the specified initial capacity.
 	 * @param capacity the maximum capacity. 
 	 */
 	public BinarySearchST(int capacity) {
@@ -235,7 +235,7 @@ public class BinarySearchST<Key extends Comparable<Key>, Value> {
 
 	/**
 	 * Removes the smallest key and associated value from this symbol table. 
-	 * @throws NoSuchelementException
+	 * @throws NoSuchElementException
 	 */
 	public void deleteMin() {
 		if (isEmpty()) throw new NoSuchElementException("Symbol table underflow error");
@@ -245,7 +245,7 @@ public class BinarySearchST<Key extends Comparable<Key>, Value> {
 	/**
 	 * Rempves the laregest key and associated value from this sybol table. 
 	 * 
-	 * @throws NoSuchelementException if the symbol table is empty
+	 * @throws NoSuchElementException if the symbol table is empty
 	 */
 	public void deleteMax() {
 		if (isEmpty()) throw new NoSuchElementException("Symbol table underflow error");
@@ -271,7 +271,7 @@ public class BinarySearchST<Key extends Comparable<Key>, Value> {
 	/**
 	 * Returns the largest key in this symbol table. 
 	 * @return the largest key in this symbol table. 
-	 * @throws NoSuchelementExeption if this symbol table is empty. 
+	 * @throws NoSuchElementException if this symbol table is empty.
 	 */
 	public Key max() {
 		if (isEmpty()) throw new NoSuchElementException("called max() with empty symbol table");
