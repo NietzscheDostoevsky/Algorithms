@@ -106,8 +106,59 @@ public class BST<Key extends Comparable<Key>, Value> {
         int cmp = key.compareTo(x.key);
         if      (cmp < 0) x.left  = put(x.left, key, val);
         else if (cmp > 0) x.right = put(x.right, key, val);
-        else              x.val   = val;[]
+        else              x.val   = val;
+        x.size = 1 + size(x.left) + size(x.right);
+        return x;
     }
+
+    /**
+     * Removes the smallest key and associated value from the symbol table.
+     *
+     * @throws NoSuchElementException if the symbol table is empty
+     */
+    public void deleteMin() {
+        if (isEmpty()) throw new NoSuchElementException("Symbol table underflow");
+        root = deleteMin(root);
+        assert check();
+    }
+
+    private Node deleteMin(Node x) {
+        if (x.left == null) return x.right;
+        x.left = deleteMin(x.left);
+        x.size = size(x.left) + size(x.right) + 1;
+        return x;
+    }
+
+    /**
+     * Removes the largest key and associated value from the symbol table.
+     *
+     * @throws NoSuchElementException if the symbol table is empty
+     */
+    public void deleteMax() {
+        if (isEmpty()) throw new NoSuchElementException("Symbol table underflow");
+        root = deleteMax(x.right);
+        assert check();
+    }
+
+    private Node deleteMax(Node x) {
+        if (x.right == null) return x.left;
+        x.right  = deleteMax(x.right);
+        x.size = size(x.right) + size(x.left) + 1;
+        return x;
+    }
+
+    /**
+     * Removes the specified key and its associated value from this symbol table
+     * (if the key is in the symbol table)
+     *
+     * @param key the key
+     * @throws IllegalArgumentException if {@code key} {@code null}
+     */
+    public void delete(Key key) {
+        
+    }
+
+
 }
 
 
