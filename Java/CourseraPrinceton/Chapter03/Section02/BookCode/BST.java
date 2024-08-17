@@ -81,9 +81,30 @@ public class BST<Key extends Comparable<Key>, Value> {
         else              return x.val;
     }
 
-    
-}
+    /**
+     * Inserts the specified key-value pair into the symbol table, overwriting the old
+     * value with the new value, if the symbol table already contains the specified key.
+     * Deleted the specified key (and its associated value) from this symbol table
+     * if the specified value is {@code null}.
+     *
+     * @param key the key
+     * @param val the value
+     * @throws IllegalArgumentException if {@code key} is {@code null}.
+     */
+    public void put(Key key, Value val) {
+        if (key == null) throw new IllegalArgumentException("Calls put() with a null key");
+        if (val == null) {
+            delete(key);
+            return;
+        }
+        root = put(root, key, val);
+        assert check();
+    }
 
+    private Node put(Node x, Key key, Value val) {
+        if (x == null) return new Node(key, val, 1);
+    }
+}
 
 
 
