@@ -178,7 +178,61 @@ public class BST<Key extends Comparable<Key>, Value> {
         return x;
     }
 
+    /**
+     * Returns the smallest key in the symbol table.
+     *
+     * @return the smallest key in the symbol table.
+     * @throws NoSuchElementException if the symbol table is empty
+     */
+    public Key min() {
+        if (isEmpty()) throw new NoSuchElementException("Calls min() with empty symbol table");
+        return min(root).key;
+    }
 
+    private Node min(Node x) {
+        if (x.left == null) return x;
+        else                return min(x.left);
+    }
+
+    /**
+     * Returns the largest key in they symbol table.
+     *
+     * @return the largerst key they symbol table.
+     * @throws NoSuchElementException if the Sumbol Table is empty.
+     */
+    public Key max() {
+        if (isEmpty()) throw new NoSuchElementException("Calls max() with empty symbll table. ");
+        return max(root).key;
+    }
+
+    private Node max(Node x) {
+        if (x.right == null) return x;
+        else                 return max(x.right);
+    }
+
+    /**
+     * Returns the largest key in they symbol table less than or equal to {@code key}.
+     *
+     * @param key the key
+     * @return the largest key in the symbol table less than or equal to {@code key}
+     * @throws NoSuchElementException if there is no such key.
+     * @throws IllegalArgumentException if {@code key} is {@code null}.
+     */
+    public Key floor(Key key) {
+        if (key == null) throw new IllegalArgumentException("Argument to floor() is null");
+        if (isEmpty()) throw new NoSuchElementException("calls floor() with empty symbol table.");
+
+        Node x = floor(root, key);
+        if (x == null) throw new NoSuchElementException("Argument to floor is too small");
+        else return x.key;
+    }
+
+    private Node floor(Node x, Key key) {
+        if (x == null) return null;
+        int cmp = key.compareTo(x.key);
+        if (cmp == 0) return x;
+        if (cmp < 0) return floor(x.left, key);
+    }
 }
 
 
