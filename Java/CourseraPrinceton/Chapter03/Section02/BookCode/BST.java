@@ -232,6 +232,23 @@ public class BST<Key extends Comparable<Key>, Value> {
         int cmp = key.compareTo(x.key);
         if (cmp == 0) return x;
         if (cmp < 0) return floor(x.left, key);
+        Node t = floor(x.right, key);
+        if (t != null) return t;
+        else return x;
+    }
+
+    public Key floor2(Key key) {
+        Key x = floor2(root, key, null);
+        if (x == null) throw new NoSuchElementException("Argument to floor() is too small");
+        else return x;
+    }
+
+    private Key floor2(Node x, Key key, Key best) {
+        if (x == null) return best;
+        int cmp = key.compareTo(x.key);
+        if      (cmp < 0) return floor2(x.left, key, best);
+        else if (cmp > 0) return floor2(x.right, key, x.key);
+        else              return x.key;
     }
 }
 
