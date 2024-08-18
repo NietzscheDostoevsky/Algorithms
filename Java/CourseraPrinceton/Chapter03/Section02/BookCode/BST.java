@@ -3,6 +3,7 @@
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 import edu.princeton.cs.algs4.Queue;
+import edu.princeton.cs.algs4.StdOut;
 
 public class BST<Key extends Comparable<Key>, Value> {
     private Node root;              // root of the BST
@@ -403,6 +404,37 @@ public class BST<Key extends Comparable<Key>, Value> {
         if (x == null) return -1;
         return 1 + Math.max(height(x.left), height(x.right));
     }
+
+    /**
+     * Returns the keys in the BST in level order (for debugging).
+     *
+     * @return the keys in the BST in level order traversal
+     */
+    public Iterable<Key> levelOrder() {
+        Queue<Key> keys = new Queue<Key>();
+        Queue<Node> queue = new Queue<Node>();
+        queue.enqueue(root);
+        while (!queue.isEmpty()) {
+            Node x = queue.dequeue();
+            if (x == null) continue;
+            keys.enqueue(x.key);
+            queue.enqueue(x.left);
+            queue.enqueue(x.right);
+        }
+        return keys;
+    }
+
+    /*********************************************************************
+     * Check integrity of BST data structure.
+     *********************************************************************/
+     private boolean check() {
+         if (!isBST()) StdOut.println("Not in symettric order");
+         if (!isSizeConsistent()) StdOut.println("Subtree counts not consistent");
+         if (!isRankConsistent()) StdOut.println("Ranks not consistent");
+         return isBST() && isSizeConsistent() && isRankConsistent();
+     }
+
+
 }
 
 
