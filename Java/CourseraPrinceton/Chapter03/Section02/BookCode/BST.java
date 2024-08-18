@@ -315,8 +315,19 @@ public class BST<Key extends Comparable<Key>, Value> {
      * @throws IllegalArgumentException if {@code key} is {@code null}
      */
     public int rank(Key key) {
-
+        if (key == null) throw new IllegalArgumentException("argument to rank() is null");
+        return rank(key, root);
     }
+
+    //Number of keys in the subtree less than key.
+    private int rank(Key key, Node x) {
+        if (x == null) return 0;
+        int cmp = key.compareTo(x.key);
+        if      (cmp < 0) return rank(key, x.left);
+        else if (cmp > 0) return (1 + size(x.left) + rank(key, x.right));
+        else              return size(x.left);
+    }
+
 
 
 }
