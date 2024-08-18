@@ -3,6 +3,7 @@
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 import edu.princeton.cs.algs4.Queue;
+import edu.princeton.cs.algs4.StdIn;
 import edu.princeton.cs.algs4.StdOut;
 
 public class BST<Key extends Comparable<Key>, Value> {
@@ -467,6 +468,27 @@ public class BST<Key extends Comparable<Key>, Value> {
         for (Key key : keys())
             if (key.compareTo(select(rank(key))) != 0) return false;
         return true;
+    }
+
+    /**
+     * Unit tests the {@code BST} data type
+     *
+     * @param args the CLI arguments
+     */
+    public static void main(String[] args) {
+        BST<String, Integer> st = new BST<String, Integer>();
+        for (int i = 0; !StdIn.isEmpty(); i++) {
+            String key = StdIn.readString();
+            st.put(key, i);
+        }
+
+        for (String s: st.levelOrder())
+            StdOut.println(s + " " + st.get(s));
+
+        StdOut.println();
+
+        for (String s: st.keys())
+            StdOut.println(s + " " + st.get(s));
     }
 }
 
