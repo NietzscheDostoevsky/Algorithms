@@ -1,6 +1,5 @@
 // Complete implementation of Binary Search Tree Symbol Table.
 
-import java.util.Iterator;
 import java.util.NoSuchElementException;
 import edu.princeton.cs.algs4.Queue;
 import edu.princeton.cs.algs4.StdIn;
@@ -202,11 +201,11 @@ public class BST<Key extends Comparable<Key>, Value> {
     /**
      * Returns the largest key in they symbol table.
      *
-     * @return the largerst key they symbol table.
-     * @throws NoSuchElementException if the Sumbol Table is empty.
+     * @return the largest key they symbol table.
+     * @throws NoSuchElementException if the Symbol Table is empty.
      */
     public Key max() {
-        if (isEmpty()) throw new NoSuchElementException("Calls max() with empty symbll table. ");
+        if (isEmpty()) throw new NoSuchElementException("Calls max() with empty symbol table. ");
         return max(root).key;
     }
 
@@ -268,7 +267,7 @@ public class BST<Key extends Comparable<Key>, Value> {
         if (key == null) throw new IllegalArgumentException("argument to ceiling() is null");
         if (isEmpty()) throw new NoSuchElementException("Calls ceiling() with empty symbol table");
         Node x = ceiling(root, key);
-        if (x == null) throw new NoSuchElementException("argument to ceilin() is too large");
+        if (x == null) throw new NoSuchElementException("argument to ceiling() is too large");
         else return x.key;
     }
 
@@ -429,14 +428,14 @@ public class BST<Key extends Comparable<Key>, Value> {
      * Check integrity of BST data structure.
      *********************************************************************/
      private boolean check() {
-         if (!isBST())            StdOut.println("Not in symettric order");
+         if (!isBST())            StdOut.println("Not in symmetric order");
          if (!isSizeConsistent()) StdOut.println("Subtree counts not consistent");
          if (!isRankConsistent()) StdOut.println("Ranks not consistent");
          return isBST() && isSizeConsistent() && isRankConsistent();
      }
 
     // does this binary tree satisfy symmetric order?
-    // Note: this test also entures that structure is a binary tree since order is strict
+    // Note: this test also ensures that structure is a binary tree since order is strict
     private boolean isBST() {
          return isBST(root, null, null);
     }
