@@ -1,4 +1,5 @@
 // Complete implementation of Binary Search Tree Symbol Table.
+import java.nio.channels.FileLock;
 import java.util.NoSuchElementException;
 
 public class BST<Key extends Comparable<Key>, Value> {
@@ -291,8 +292,33 @@ public class BST<Key extends Comparable<Key>, Value> {
      *        <em>n</em>–1
      */
     public Key select(int rank) {
+        if (rank < 0 || rank >= size())
+            throw new IllegalArgumentException("Argument ot select() is invalid: " + rank);
+        return select(root, rank);
+    }
+
+    // Return key in BST rooted at x of given rank
+    // Precondition: rank is in legal range.
+    private Key select(Node x, int rank) {
+        if (x == null) return null;
+        int leftSize = size(x.left);
+        if      (leftSize > rank) return select(x.left, rank);
+        else if (leftSize < rank) return select(x.right, rank - leftSize - 1);
+        else                      return x.key;
+    }
+
+    /**
+     * Return the number of keys in the symbol table strictly less than {@code key}.
+     *
+     * @param  key the key
+     * @return the number of keys in the symbol table strictly less than {@code key}
+     * @throws IllegalArgumentException if {@code key} is {@code null}
+     */
+    public int rank(Key key) {
 
     }
+
+
 }
 
 
