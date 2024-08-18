@@ -448,6 +448,17 @@ public class BST<Key extends Comparable<Key>, Value> {
          if (max != null && x.key.compareTo(max) >= 0) return false;
          return isBST(x.left, min, x.key) && isBST(x.right, x.key, max);
     }
+
+    // are the size fields correct?
+    private boolean isSizeConsistent() {
+         return isSizeConsistent(root);
+    }
+
+    private boolean isSizeConsistent(Node x) {
+         if (x == null)                                  return true;
+         if (x.size != size(x.left) + size(x.right) + 1) return false;
+         return isSizeConsistent(x.left) && isSizeConsistent(x.right);
+    }
 }
 
 
