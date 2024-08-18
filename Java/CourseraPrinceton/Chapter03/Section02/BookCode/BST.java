@@ -434,7 +434,20 @@ public class BST<Key extends Comparable<Key>, Value> {
          return isBST() && isSizeConsistent() && isRankConsistent();
      }
 
+    // does this binary tree satisfy symmetric order?
+    // Note: this test also entures that structure is a binary tree since order is strict
+    private boolean isBST() {
+         return isBST(root, null, null);
+    }
 
+    // is the tree rooted at x a BST with all keys strictly between min and max
+    // (if in or max is null, treat as empty constraint)
+    private boolean isBST(Node x, Key min, Key max) {
+         if (x == null)                                return true;
+         if (min != null && x.key.compareTo(min) <= 0) return false;
+         if (max != null && x.key.compareTo(max) >= 0) return false;
+         return isBST(x.left, min, x.key) && isBST(x.right, x.key, max);
+    }
 }
 
 
