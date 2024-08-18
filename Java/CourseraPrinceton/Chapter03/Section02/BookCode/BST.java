@@ -141,7 +141,7 @@ public class BST<Key extends Comparable<Key>, Value> {
      */
     public void deleteMax() {
         if (isEmpty()) throw new NoSuchElementException("Symbol table underflow");
-        root = deleteMax(x.right);
+        root = deleteMax(root);
         assert check();
     }
 
