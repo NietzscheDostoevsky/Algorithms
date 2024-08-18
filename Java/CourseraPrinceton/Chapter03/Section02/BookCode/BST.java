@@ -390,6 +390,19 @@ public class BST<Key extends Comparable<Key>, Value> {
         if (contains(hi))         return rank(hi) - rank(lo) + 1;
         else                      return rank(hi) - rank(lo);
     }
+
+    /**
+     * Returns the height of the BST (for debugging).
+     *
+     * @return the height of the BST (a 1-node tree has height 0)
+     */
+    public int height() {
+        return height(root);
+    }
+    private int height(Node x) {
+        if (x == null) return -1;
+        return 1 + Math.max(height(x.left), height(x.right));
+    }
 }
 
 
