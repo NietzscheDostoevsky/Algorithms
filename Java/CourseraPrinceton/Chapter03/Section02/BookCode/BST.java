@@ -1,8 +1,8 @@
 // Complete implementation of Binary Search Tree Symbol Table.
-import java.nio.channels.FileLock;
+
 import java.util.Iterator;
 import java.util.NoSuchElementException;
-import java.util.Queue;
+import edu.princeton.cs.algs4.Queue;
 
 public class BST<Key extends Comparable<Key>, Value> {
     private Node root;              // root of the BST
@@ -344,8 +344,26 @@ public class BST<Key extends Comparable<Key>, Value> {
     }
 
     /**
-     * 
+     * Returns all keys in the symbol table in the given range
+     * in ascending order, as an {@code Iterable}.
+     *
+     * @param  lo minimum endpoint
+     * @param  hi maximum endpoint
+     * @return all keys in the symbol table between {@code lo}
+     *         (inclusive) and {@code hi} (inclusive) in ascending order
+     * @throws IllegalArgumentException if either {@code lo} or {@code hi}
+     *         is {@code null}
      */
+    public Iterable<Key> keys(Key lo, Key hi) {
+        if (lo == null) throw new IllegalArgumentException("first argument to keys() is null");
+        if (hi == null) throw new IllegalArgumentException(("second argument to keys() is null"));
+
+        Queue<Key> queue = new Queue<>();
+        keys(root, queue, lo, hi);
+        return queue;
+    }
+
+
 }
 
 
