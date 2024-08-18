@@ -459,6 +459,15 @@ public class BST<Key extends Comparable<Key>, Value> {
          if (x.size != size(x.left) + size(x.right) + 1) return false;
          return isSizeConsistent(x.left) && isSizeConsistent(x.right);
     }
+
+    // check that ranks are consistent
+    private boolean isRankConsistent() {
+        for (int i = 0; i < size(); i++)
+            if (i != rank(select(i))) return false;
+        for (Key key : keys())
+            if (key.compareTo(select(rank(key))) != 0) return false;
+        return true;
+    }
 }
 
 
