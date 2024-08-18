@@ -1,6 +1,8 @@
 // Complete implementation of Binary Search Tree Symbol Table.
 import java.nio.channels.FileLock;
+import java.util.Iterator;
 import java.util.NoSuchElementException;
+import java.util.Queue;
 
 public class BST<Key extends Comparable<Key>, Value> {
     private Node root;              // root of the BST
@@ -328,8 +330,22 @@ public class BST<Key extends Comparable<Key>, Value> {
         else              return size(x.left);
     }
 
+    /**
+     * Returns all keys in the symbol table in ascending order,
+     * as an {@code Iterable}.
+     * To iterate over all of the keys in the symbol table named {@code st},
+     * use the foreach notation:  {@code for (Key key: st.keys())}.
+     *
+     * @return all keys in the symbol table in ascending order
+     */
+    public Iterable<Key> keys() {
+        if (isEmpty()) return new Queue<Key>();
+        return keys(min(), max());
+    }
 
-
+    /**
+     * 
+     */
 }
 
 
