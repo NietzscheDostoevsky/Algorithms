@@ -233,8 +233,8 @@ public class BST<Key extends Comparable<Key>, Value> {
         if (cmp == 0) return x;
         if (cmp < 0) return floor(x.left, key);
         Node t = floor(x.right, key);
-        if (t != null) return t;
-        else return x;
+        if (t != null)  return t;
+        else            return x;
     }
 
     public Key floor2(Key key) {
@@ -273,12 +273,26 @@ public class BST<Key extends Comparable<Key>, Value> {
         if (cmp == 0) return x;
         if (cmp < 0) {
             Node t = ceiling(x.left, key);
-            if (t != null) return t;
-            else return x;
+            if (t != null)  return t;
+            else            return x;
         }
         return ceiling(x.right, key);
     }
 
+    /**
+     * Return the key in the symbol table of a given {@code rank}.
+     * This key has the property that there are {@code rank} keys in
+     * the symbol table that are smaller. In other words, this key is the
+     * ({@code rank}+1)st smallest key in the symbol table.
+     *
+     * @param  rank the order statistic
+     * @return the key in the symbol table of given {@code rank}
+     * @throws IllegalArgumentException unless {@code rank} is between 0 and
+     *        <em>n</em>–1
+     */
+    public Key select(int rank) {
+
+    }
 }
 
 
