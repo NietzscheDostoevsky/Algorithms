@@ -618,7 +618,25 @@ public class RedBlackBST<Key extends Comparable<Key>, Value> {
         return is23(x.left) && is23(x.right);
     }
 
+    // do all paths from root to leaf have same number of black edges?
+    private boolean isBalanced() {
+        int black = 0;     // number of black links on path from root to min
+        Node x = root;
+        while (x != null) {
+            if (!isRed(x)) black++;
+            x = x.left;
+        }
+        return isBalanced(root, black);
+    }
+
+    // does every path from the root to a leaf have the given number of black links?
+    private boolean isBalanced(Node x, int black) {
+        if (x == null) return black == 0;
+        if (!isRed(x)) black--;
+        return isBalanced(x.left, black) && isBalanced(x.right, black);
+    }
     
+
 }
 
 
