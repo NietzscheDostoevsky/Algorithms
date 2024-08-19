@@ -1,7 +1,6 @@
 import java.util.NoSuchElementException;
 import edu.princeton.cs.algs4.StdOut;
-
-import javax.naming.ServiceUnavailableException;
+import edu.princeton.cs.algs4.Queue;
 
 // Complete implementation of red-black BST
 
@@ -506,6 +505,42 @@ public class RedBlackBST<Key extends Comparable<Key>, Value> {
         if      (cmp < 0) return rank(key, x.left);
         else if (cmp > 0) return 1 + size(x.left) + rank(key, x.right);
         else              return size(x.left);
+    }
+
+    /***************************************************************************
+     *  Range count and range search.
+     ***************************************************************************/
+
+    /**
+     * Returns all keys in the symbol table in the given range in ascending order,
+     * as an {@code Iterable}.
+     *
+     * @param  lo minimum endpoint
+     * @param  hi maximum endpoint
+     * @return all keys in the symbol table between {@code lo}
+     *    (inclusive) and {@code hi} (inclusive) in ascending order
+     * @throws IllegalArgumentException if either {@code lo} or {@code hi}
+     *    is {@code null}
+     */
+    public Iterable<Key> keys(Key lo, Key hi) {
+        if (lo == null) throw new IllegalArgumentException("first argument to keys() is null");
+        if (hi == null) throw new IllegalArgumentException("second argument to keys() is null");
+
+        Queue<Key> queue = new Queue<Key>();
+        // if (isEmpty() || lo.compareTo(hi) > 0) return queue;
+        keys(root, queue, lo, hi);
+        return queue;
+    }
+
+    // add the keys between lo and hi in the subtree rooted at x
+    // to the queue
+    private void keys(Node x, Queue<Key> queue, Key lo, Key hi) {
+        if (x == null) return;
+        int cmplo = lo.compareTo(x.key);
+        int cmphi = hi.compareTo(x.key);
+        if (cmplo < 0) keys(x.left, queue, lo, hi);
+        if (cmplo <= 0 && cmphi >= 0) queue.enqueue(x.key);
+        if (cmphi > 0) keys(x.right, queue, lo, hi);
     }
 
 }
