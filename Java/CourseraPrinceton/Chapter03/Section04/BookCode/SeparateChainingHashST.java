@@ -1,6 +1,7 @@
 // Complete implementation of Symbol Table using Separate Chaining Hash Table
 // The key type MUST override equals() and hashcode() methods.
 
+import edu.princeton.cs.algs4.Queue;
 import edu.princeton.cs.algs4.SequentialSearchST;
 
 @SuppressWarnings("unchecked")
@@ -142,6 +143,15 @@ public class SeparateChainingHashST<Key, Value> {
 
         // halve table size if average length of list <= 2
         if (m > INIT_CAPACITY && n <= 2*m) resize(m/2);
+    }
+
+    // returns keys in symbol table as in Iterable
+    public Iterable<Key> keys() {
+        Queue<Key> queue = new Queue<Key>();
+        for (int i = 0; i < m; i++)
+            for (Key key : st[i].keys())
+                queue.enqueue(key);
+        return queue;
     }
 }
 
