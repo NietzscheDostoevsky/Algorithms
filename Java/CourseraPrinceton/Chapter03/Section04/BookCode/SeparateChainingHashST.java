@@ -47,5 +47,12 @@ public class SeparateChainingHashST<Key, Value> {
         return (key.hashCode() & 0x7fffffff) % m;
     }
 
+    // hash function for keys - returns value between 0 and m -1
+    // assumes m is a power of 2
+    private int hash(Key key) {
+        int h = key.hashCode();
+        h ^= (h >>> 20) ^ (h >>> 12) ^ (h >>> 7) ^ (h >>> 4);
+        return h & (m-1);
+    }
 
 }
