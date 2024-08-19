@@ -114,7 +114,7 @@ public class RedBlackBST<Key extends Comparable<Key>, Value> {
 
     /**
      * Inserts the specified key-value pair into the symbol table, overwriting the old
-     * value with the new value if the symbol table alrady contains the specified key.
+     * value with the new value if the symbol table already contains the specified key.
      * Deletes the specified key (and its associated value) from this symbol table
      * if the specified value is {@code null}.
      *
@@ -383,7 +383,7 @@ public class RedBlackBST<Key extends Comparable<Key>, Value> {
         return min(root).key;
     }
 
-    // the smallest key in subteee rooted at x; null if there is no such key
+    // the smallest key in subtree rooted at x; null if there is no such key
     private Node min(Node x) {
         if (x.left == null) return x;
         else                return min(x.left);
@@ -667,79 +667,3 @@ public class RedBlackBST<Key extends Comparable<Key>, Value> {
     }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
