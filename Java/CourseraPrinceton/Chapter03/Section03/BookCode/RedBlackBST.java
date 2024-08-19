@@ -299,7 +299,22 @@ public class RedBlackBST<Key extends Comparable<Key>, Value> {
         h.right.color = !h.right.color;
     }
 
-    
+    // Assuming that h is red and both h.left and h.left.left are black.
+    // Make h.left or one of its children red.
+    private Node moveRedLeft(Node h) {
+        assert (h != null);
+        assert isRed(h) && !isRed(h.left) && !isRed(h.left.left);
+
+        flipColors(h);
+        if (isRed(h.right.left)) {
+            h.right = rotateRight(h.right);
+            h = rotateLeft(h);
+            flipColors(h);
+        }
+        return h;
+    }
+
+   
 }
 
 
