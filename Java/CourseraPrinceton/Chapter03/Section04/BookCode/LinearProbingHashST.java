@@ -1,4 +1,5 @@
 import edu.princeton.cs.algs4.Queue;
+import edu.princeton.cs.algs4.StdIn;
 import edu.princeton.cs.algs4.StdOut;
 // Complete implementation of Symbol Table using Linear Probing Hash Table
 // The key type MUST override equals() and hashcode() methods.
@@ -193,6 +194,23 @@ public class LinearProbingHashST<Key, Value> {
             }
         }
         return true;
+    }
+
+    /**
+     * Unit tests the {@code LinearProbingHashST} data type.
+     *
+     * @param args the command-line arguments
+     */
+    public static void main(String[] args) {
+        LinearProbingHashST<String, Integer> st = new LinearProbingHashST<String, Integer>();
+        for (int i = 0; !StdIn.isEmpty(); i++) {
+            String key = StdIn.readString();
+            st.put(key, i);
+        }
+
+        // print keys
+        for (String s : st.keys())
+            StdOut.println(s + " " + st.get(s));
     }
 
 }
