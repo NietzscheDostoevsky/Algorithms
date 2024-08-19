@@ -279,9 +279,9 @@ public class RedBlackBST<Key extends Comparable<Key>, Value> {
     // make a left-leaning link lean to the right
     private Node rotateRight(Node h) {
         assert (h != null) && isRed(h.left);
-        Node x = h.right;
-        h.right = x.left;
-        x.left = h;
+        Node x = h.left;
+        h.left = x.right;
+        x.right = h;
         x.color = h.color;
         h.color = RED;
         x.size = h.size;
