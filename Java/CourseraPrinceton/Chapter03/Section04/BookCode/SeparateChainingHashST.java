@@ -55,4 +55,13 @@ public class SeparateChainingHashST<Key, Value> {
         return h & (m-1);
     }
 
+    /**
+     * Returns the number of key-value pairs in this symbol table.
+     *
+     * @return the number of key-value pairs in this symbol table
+     */
+    public int size() {
+        return n;
+    }
+
 }
