@@ -1,6 +1,8 @@
 import java.util.NoSuchElementException;
 import edu.princeton.cs.algs4.StdOut;
 
+import javax.naming.ServiceUnavailableException;
+
 // Complete implementation of red-black BST
 
 public class RedBlackBST<Key extends Comparable<Key>, Value> {
@@ -191,6 +193,38 @@ public class RedBlackBST<Key extends Comparable<Key>, Value> {
         return balance(h);
     }
 
+    /**
+     * Removes the largest key and associated value from the symbol table.
+     * @throws NoSuchElementException if the symbol table is empty
+     */
+    public void deleteMax() {
+        if (isEmpty()) throw new NoSuchElementException("BST underflow");
+
+        // if both children are black, set root to red.
+        if (!isRed(root.left) && !isRed(root.right))
+            root.color = RED;
+
+        root = deleteMax(root);
+        if (!isEmpty()) root.color = BLACK;
+        // assert check();
+    }
+
+    private Node deleteMax(Node h) {
+        if (isRed(h.left))
+            h = rotateRight(h);
+
+        if (h.right == null)
+            return null;
+
+        if (!isRed(h.right) && !isRed(h.left))
+            h = moveRedRight(h);
+
+        h.right = deleteMax(h.right);
+
+        return balance(h);
+    }
+
+    
 }
 
 
