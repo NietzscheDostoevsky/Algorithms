@@ -41,5 +41,11 @@ public class SeparateChainingHashST<Key, Value> {
         this.n  = temp.n;
         this.st = temp.st;
     }
-    
+
+    // hash function for keys - returns value between 0 and m-1
+    private int hashTextbook(Key key) {
+        return (key.hashCode() & 0x7fffffff) % m;
+    }
+
+
 }
