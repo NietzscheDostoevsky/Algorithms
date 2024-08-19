@@ -130,7 +130,7 @@ public class RedBlackBST<Key extends Comparable<Key>, Value> {
 
         root = put(root, key, val);
         root.color = BLACK;
-        // assert check();
+        assert check();
     }
 
     // insert the key value pair in the subtree rooted at h
@@ -180,7 +180,7 @@ public class RedBlackBST<Key extends Comparable<Key>, Value> {
 
         root = deleteMin(root);
         if (!isEmpty()) root.color = BLACK;
-        // assert check();
+        assert check();
     }
 
     // delete the key-val pair with the minimum key rooted at h
@@ -206,7 +206,7 @@ public class RedBlackBST<Key extends Comparable<Key>, Value> {
 
         root = deleteMax(root);
         if (!isEmpty()) root.color = BLACK;
-        // assert check();
+        assert check();
     }
 
     private Node deleteMax(Node h) {
@@ -224,7 +224,52 @@ public class RedBlackBST<Key extends Comparable<Key>, Value> {
         return balance(h);
     }
 
-    
+    /**
+     * Removes the specified key and its associated value from this symbol table
+     * (if the key is in this symbol table).
+     *
+     * @param  key the key
+     * @throws IllegalArgumentException if {@code key} is {@code null}
+     */
+    public void delete(Key key) {
+        if (key == null) throw new IllegalArgumentException("argument to delete() is null");
+        if (!contains(key)) return;
+
+        // if both children of root are black, set root to red.
+        if (!isRed(root.left) && !isRed(root.right))
+            root.color = RED;
+
+        root = delete(root, key);
+        if (!isEmpty()) root.color = BLACK;
+        assert check();
+    }
+
+    //delete the key-value pair with the given key rooted at h
+    private Node delete(Node h, Key key) {
+        assert get(h, key) != null;
+
+        if (key.compareTo(h.key) < 0) {
+            if (!isRed(h.left) && !isRed(h.left.left))
+                h = moveRedLeft(h);
+            h.left = delete(h.left, key);
+        } else {
+            if (isRed(h.left))
+                h = rotateRight(h);
+            if (key.compareTo(h.key) == 0 && (h.right == null))
+                return null;
+            if (!isRed(h.right) && !isRed(h.right.left))
+                h = moveRedRight(h);
+            if (key.compareTo(h.key) == 0) {
+                Node x = min(h.right);
+                h.key = x.key;
+                h.val = x.val;
+                h.right = deleteMin(h.right);
+            } else {
+                h.right = delete(h.right, key);
+            }
+        }
+        return balance(h);
+    }
 }
 
 
