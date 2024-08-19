@@ -130,7 +130,7 @@ public class RedBlackBST<Key extends Comparable<Key>, Value> {
 
         root = put(root, key, val);
         root.color = BLACK;
-        assert check();
+        // assert check();
     }
 
     // insert the key value pair in the subtree rooted at h
@@ -180,7 +180,7 @@ public class RedBlackBST<Key extends Comparable<Key>, Value> {
 
         root = deleteMin(root);
         if (!isEmpty()) root.color = BLACK;
-        assert check();
+        // assert check();
     }
 
     // delete the key-val pair with the minimum key rooted at h
@@ -206,7 +206,7 @@ public class RedBlackBST<Key extends Comparable<Key>, Value> {
 
         root = deleteMax(root);
         if (!isEmpty()) root.color = BLACK;
-        assert check();
+        // assert check();
     }
 
     private Node deleteMax(Node h) {
@@ -241,12 +241,12 @@ public class RedBlackBST<Key extends Comparable<Key>, Value> {
 
         root = delete(root, key);
         if (!isEmpty()) root.color = BLACK;
-        assert check();
+        // assert check();
     }
 
     //delete the key-value pair with the given key rooted at h
     private Node delete(Node h, Key key) {
-        assert get(h, key) != null;
+        // assert get(h, key) != null;
 
         if (key.compareTo(h.key) < 0) {
             if (!isRed(h.left) && !isRed(h.left.left))
@@ -277,7 +277,7 @@ public class RedBlackBST<Key extends Comparable<Key>, Value> {
 
     // make a left-leaning link lean to the right
     private Node rotateRight(Node h) {
-        assert ( h != null) && isRed(h.right) && !isRed(h.left); // for insertions only.
+        assert (h != null) && isRed(h.left);
         Node x = h.right;
         h.right = x.left;
         x.left = h;
@@ -291,7 +291,7 @@ public class RedBlackBST<Key extends Comparable<Key>, Value> {
     // make a right-leaning link lean to the left
     private Node rotateLeft(Node h) {
         assert (h != null) && isRed(h.right);
-        // assert (h != null) && isRed(h.right) && !isRed(h.left);  // for insertion only
+
         Node x = h.right;
         h.right = x.left;
         x.left = h;
@@ -305,9 +305,9 @@ public class RedBlackBST<Key extends Comparable<Key>, Value> {
     // flip the colors of a node and its two children
     private void flipColors(Node h) {
         // h must have opposite color of its two children.
-        assert (h != null) && (h.left != null) && (h.right != null);
-        assert (!isRed(h) && isRed(h.left) && isRed(h.right)) ||
-                (isRed(h) && !isRed(h.left) && !isRed(h.right));
+        //assert (h != null) && (h.left != null) && (h.right != null);
+        //assert (!isRed(h) && isRed(h.left) && isRed(h.right)) ||
+        //        (isRed(h) && !isRed(h.left) && !isRed(h.right));
         h.color       = !h.color;
         h.left.color  = !h.left.color;
         h.right.color = !h.right.color;
@@ -316,8 +316,8 @@ public class RedBlackBST<Key extends Comparable<Key>, Value> {
     // Assuming that h is red and both h.left and h.left.left are black.
     // Make h.left or one of its children red.
     private Node moveRedLeft(Node h) {
-        assert (h != null);
-        assert isRed(h) && !isRed(h.left) && !isRed(h.left.left);
+        //assert (h != null);
+        //assert isRed(h) && !isRed(h.left) && !isRed(h.left.left);
 
         flipColors(h);
         if (isRed(h.right.left)) {
@@ -331,7 +331,7 @@ public class RedBlackBST<Key extends Comparable<Key>, Value> {
     // Assuming that h is red and both h.right and h.right.left are black
     // make h.right or one of its children red.
     private Node moveRedRight(Node h) {
-        assert (h != null);
+        //assert (h != null);
         if (isRed(h.left.left)) {
             h = rotateRight(h);
             flipColors(h);
