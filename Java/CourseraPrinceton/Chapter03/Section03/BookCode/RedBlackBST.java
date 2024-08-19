@@ -83,6 +83,8 @@ public class RedBlackBST<Key extends Comparable<Key>, Value> {
 
     // value associated with the given key in a subtree rooted at x, null if no such key
     private Value get(Node x, Key key) {
+        //Iterative approach
+        
         while (x != null) {
             int cmp = key.compareTo(x.key);
             if      (cmp < 0) x = x.left;
