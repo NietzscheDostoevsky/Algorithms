@@ -387,6 +387,23 @@ public class RedBlackBST<Key extends Comparable<Key>, Value> {
         if (x.left == null) return x;
         else                return min(x.left);
     }
+
+    /**
+     * Returns the largest key in the symbol table.
+     * @return the largest key in the symbol table
+     * @throws NoSuchElementException if the symbol table is empty
+     */
+    public Key max() {
+        if (isEmpty()) throw new NoSuchElementException("calls max() with empty symbol table");
+        return max(root).key;
+    }
+
+    // the largest key in the subtree rooted at x; null if no such key
+    private Node max(Node x) {
+        if (x.right == null) return x;
+        else                 return max(x.right);
+    }
+
 }
 
 
