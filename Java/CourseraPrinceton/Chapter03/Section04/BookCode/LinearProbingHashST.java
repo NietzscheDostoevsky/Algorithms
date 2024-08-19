@@ -75,4 +75,77 @@ public class LinearProbingHashST<Key, Value> {
         h ^= (h >>> 20) ^ (h >>> 12) ^ (h >>> 7) ^ (h >>> 4);
         return h & (m-1);
     }
+
+    // resize the hash table to the given capacity by re-hashing all the keys.
+    private void resize(int capacity) {
+        LinearProbingHashST<Key, Value> temp = new LinearProbingHashST<Key, Value>(capacity);
+        for (int i = 0; i < m; i++)
+            if (keys[i] != null)
+                temp.put(keys[i], vals[i]);
+        keys = temp.keys;
+        vals = temp.vals;
+        m    = temp.m;
+    }
+
+    
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
