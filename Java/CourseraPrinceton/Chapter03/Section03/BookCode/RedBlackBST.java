@@ -105,7 +105,63 @@ public class RedBlackBST<Key extends Comparable<Key>, Value> {
         return get(key) != null;
     }
 
-    
+    /****************************************************************
+            *  Red-black tree insertion.
+    ****************************************************************/
+
+    /**
+     * Inserts the specified key-value pair into the symbol table, overwriting the old
+     * value with the new value if the symbol table alrady contains the specified key.
+     * Deletes the specified key (and its associated value) from this symbol table
+     * if the specified value is {@code null}.
+     *
+     * @param key the key
+     * @param val the value
+     * @throws IllegalArgumentException if {@code key} is {@code null}.
+     */
+    public void put(Key key, Value val) {
+        if (key == null) throw new IllegalArgumentException("First argument to put() is null");
+        if (val == null) {
+            delete(key);
+            return;
+        }
+
+        root = put(root, key, val);
+        root.color = BLACK;
+        // assert check();
+    }
+
+    // insert the key value pair in the subtree rooted at h
+    private Node put(Node h, Key key, Value val) {
+        // The method ensures that the Red-Black Tree remains balanced and maintains its properties:
+        // No red node has a red child.
+        // Every path from the root to a leaf has the same number of black nodes.
+        // Red nodes lean left.
+
+        if (h == null) return new Node(key, val, RED, 1); // base case
+
+        int cmp = key.compareTo(h.key);
+        if      (cmp < 0) h.left  = put(h.left,  key, val);
+        else if (cmp > 0) h.right = put(h.right, key, val);
+        else              h.val   = val;
+
+        // fix-up any right-leaning links
+
+        // If the right child is red and the left child is not,
+        // a left rotation is performed to ensure that red links lean left.
+        if (isRed(h.right) && !isRed(h.left))      h = rotateLeft(h);
+        // If both the left child and its left child are red,
+        // a right rotation is performed to balance the tree.
+        if (isRed(h.left)  &&  isRed(h.left.left)) h = rotateRight(h);
+        // If both the left and right children are red,
+        // the colors are flipped (i.e., the current node becomes red, and both children become black).
+        if (isRed(h.left)  &&  isRed(h.right))     flipColors(h);
+        h.size = size(h.left) + size(h.right) + 1;
+
+        return h;
+    }
+
+
 }
 
 
