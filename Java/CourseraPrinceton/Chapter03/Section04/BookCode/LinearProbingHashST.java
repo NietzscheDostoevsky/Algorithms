@@ -129,6 +129,21 @@ public class LinearProbingHashST<Key, Value> {
      *         {@code null} if no such value
      * @throws IllegalArgumentException if {@code key} is {@code null}
      */
+    public Value get(Key key) {
+        if (key == null) throw new IllegalArgumentException("argument to get() is null");
+        for (int i = hash(key); keys[i] != null; i = (i + 1) %m)
+            if (keys[i].equals(key))
+                return vals[i];
+        return null;
+    }
+
+    /**
+     * Returns the value associated with the specified key.
+     * @param key the key
+     * @return the value associated with {@code key};
+     *         {@code null} if no such value
+     * @throws IllegalArgumentException if {@code key} is {@code null}
+     */
     public void delete(Key key) {
         if (key == null) throw new IllegalArgumentException("argument to delete() is null");
         if (!contains(key)) return;
