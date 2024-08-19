@@ -174,6 +174,27 @@ public class LinearProbingHashST<Key, Value> {
         return queue;
     }
 
+    // integrity check - don't check after each put() because
+    // integrity not maintained during a call to delete()
+    private boolean check() {
+
+        // check that hash table is at most 50% full
+        if (m < 2*n) {
+            System.err.println("Hash table size m = " + m + "; array size n = " + n);
+            return false;
+        }
+
+        // check that each key in table can be found by get()
+        for (int i = 0; i < m; i++) {
+            if (keys[i] == null) continue;
+            else if (get(keys[i]) != vals[i]) {
+                System.err.println("get[" + keys[i] + "] = " + get(keys[i]) + "; vals[i] = " + vals[i]);
+                return false;
+            }
+        }
+        return true;
+    }
+
 }
 
 
