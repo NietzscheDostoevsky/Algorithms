@@ -350,6 +350,43 @@ public class RedBlackBST<Key extends Comparable<Key>, Value> {
         h.size = size(h.left) + size(h.right) + 1;
         return h;
     }
+
+    /***************************************************************************
+     *  Utility functions.
+     ***************************************************************************/
+
+    /**
+     * Returns the height of the BST (for debugging).
+     * @return the height of the BST (a 1-node tree has height 0)
+     */
+    public int height() {
+        return height(root);
+    }
+
+    private int height(Node x) {
+        if (x == null) return -1;
+        return 1 + Math.max(height(x.left), height(x.right));
+    }
+
+    /***************************************************************************
+     *  Ordered symbol table methods.
+     ***************************************************************************/
+
+    /**
+     * Returns the smallest key in the symbol table.
+     * @return the smallest key in the symbol table
+     * @throws NoSuchElementException if the symbol table is empty
+     */
+    public Key min() {
+        if (isEmpty()) throw new NoSuchElementException("calls min() with empty symbol table");
+        return min(root).key;
+    }
+
+    // the smallest key in subteee rooted at x; null if there is no such key
+    private Node min(Node x) {
+        if (x.left == null) return x;
+        else                return min(x.left);
+    }
 }
 
 
