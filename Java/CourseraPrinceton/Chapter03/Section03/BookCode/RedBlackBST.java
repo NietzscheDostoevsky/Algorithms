@@ -161,6 +161,35 @@ public class RedBlackBST<Key extends Comparable<Key>, Value> {
         return h;
     }
 
+    /***************************************************************************
+     *  Red-black tree deletion.
+     ***************************************************************************/
+
+    /**
+     * Removes the smallest key and associated value from the symbol table.
+     * @throws NoSuchElementException if the symbol table is empty
+     */
+    public void deleteMin() {
+        if (isEmpty()) throw new NoSuchElementException("BST underflow");
+
+        // if both children of root are black, set root to red.
+        if (!isRed(root.left) && !isRed(root.right))
+            root.color = RED;
+
+        root = deleteMin(root);
+        if (!isEmpty()) root.color = BLACK;
+        // assert check();
+    }
+
+    // delete the key-val pair with the minimum key rooted at h
+    private Node deleteMin(Node h) {
+        if (h.left == null) return null;
+        if (!isRed(h.left) && !isRed(h.left.left))
+            h = moveRedLeft(h);
+
+        h.left = deleteMin(h.left);
+        return balance(h);
+    }
 
 }
 
