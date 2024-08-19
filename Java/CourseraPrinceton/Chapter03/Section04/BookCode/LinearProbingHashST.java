@@ -138,10 +138,10 @@ public class LinearProbingHashST<Key, Value> {
     }
 
     /**
-     * Returns the value associated with the specified key.
-     * @param key the key
-     * @return the value associated with {@code key};
-     *         {@code null} if no such value
+     * Removes the specified key and its associated value from this symbol table
+     * (if the key is in this symbol table).
+     *
+     * @param  key the key
      * @throws IllegalArgumentException if {@code key} is {@code null}
      */
     public void delete(Key key) {
