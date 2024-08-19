@@ -607,6 +607,18 @@ public class RedBlackBST<Key extends Comparable<Key>, Value> {
         return true;
     }
 
+    // Does the tree have no red right link, and at most one left
+    // red links in a row on any path?
+    private boolean is23() { return is23(root); }
+    private boolean is23(Node x) {
+        if (x == null) return true;
+        if (isRed(x.right)) return false;
+        if (x != root && isRed(x) && isRed(x.left))
+            return false;
+        return is23(x.left) && is23(x.right);
+    }
+
+    
 }
 
 
