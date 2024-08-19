@@ -64,4 +64,14 @@ public class SeparateChainingHashST<Key, Value> {
         return n;
     }
 
+    /**
+     * Returns true if this symbol table is empty.
+     *
+     * @return {@code true} if this symbol table is empty;
+     *         {@code false} otherwise
+     */
+    public boolean isEmpty() {
+        return size() == 0;
+    }
+
 }
