@@ -475,6 +475,23 @@ public class BST<Key extends Comparable<Key>, Value> {
      * @param args the CLI arguments
      */
     public static void main(String[] args) {
+
+        // * Test file : tinyST.txt
+        // * % more tinyST.txt
+        // *    S E A R C H E X A M P L E
+        // * To test, run as follows.
+        // % java BST < tinyST.txt
+        // *  A 8
+        // *  C 4
+        // *  E 12
+        // *  H 5
+        // *  L 11
+        // *  M 9
+        // *  P 10
+        // *  R 3
+        // *  S 0
+        // *  X 7
+
         BST<String, Integer> st = new BST<String, Integer>();
         for (int i = 0; !StdIn.isEmpty(); i++) {
             String key = StdIn.readString();
