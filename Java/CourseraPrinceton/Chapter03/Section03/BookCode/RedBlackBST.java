@@ -543,6 +543,25 @@ public class RedBlackBST<Key extends Comparable<Key>, Value> {
         if (cmphi > 0) keys(x.right, queue, lo, hi);
     }
 
+    /**
+     * Returns the number of keys in the symbol table in the given range.
+     *
+     * @param  lo minimum endpoint
+     * @param  hi maximum endpoint
+     * @return the number of keys in the symbol table between {@code lo}
+     *    (inclusive) and {@code hi} (inclusive)
+     * @throws IllegalArgumentException if either {@code lo} or {@code hi}
+     *    is {@code null}
+     */
+    public int size(Key lo, Key hi) {
+        if (lo == null) throw new IllegalArgumentException("first argument to size() is null");
+        if (hi == null) throw new IllegalArgumentException("second argument to size() is null");
+
+        if (lo.compareTo(hi) > 0) return 0;
+        if (contains(hi)) return rank(hi) - rank(lo) + 1;
+        else              return rank(hi) - rank(lo);
+    }
+
 }
 
 
