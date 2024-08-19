@@ -120,6 +120,44 @@ public class LinearProbingHashST<Key, Value> {
         n++;
     }
 
+    /**
+     * Returns the value associated with the specified key.
+     * @param key the key
+     * @return the value associated with {@code key};
+     *         {@code null} if no such value
+     * @throws IllegalArgumentException if {@code key} is {@code null}
+     */
+    public void delete(Key key) {
+        if (key == null) throw new IllegalArgumentException("argument to delete() is null");
+        if (!contains(key)) return;
+
+        // find position i of key
+        int i = hash(key);
+        while (!key.equals(keys[i]))
+            i = (i + 1) % m;
+
+        // delete key and associated value
+        keys[i] = null;
+        vals[i] = null;
+
+        // rehash all keys in same cluster.
+        i = (i + 1) % m;
+        while (keys[i] != null) {
+            // delete keys[i] and vals[i] and reinsert
+            Key   keyToRehash = keys[i];
+            Value valToRehash = vals[i];
+            keys[i] = null;
+            vals[i] = null;
+            n--;
+            put(keyToRehash, valToRehash);
+            i = (i + 1) % m;
+        }
+        n--;
+
+        // halves size of array if it's 12.5% full or less
+        if (n > 0 && n <= m/8) resize(m/2);
+        assert check();
+    }
 
 }
 
