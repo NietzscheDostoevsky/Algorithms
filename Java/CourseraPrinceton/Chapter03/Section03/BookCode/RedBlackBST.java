@@ -84,7 +84,7 @@ public class RedBlackBST<Key extends Comparable<Key>, Value> {
     // value associated with the given key in a subtree rooted at x, null if no such key
     private Value get(Node x, Key key) {
         //Iterative approach
-        
+
         while (x != null) {
             int cmp = key.compareTo(x.key);
             if      (cmp < 0) x = x.left;
@@ -94,6 +94,18 @@ public class RedBlackBST<Key extends Comparable<Key>, Value> {
         return null;
     }
 
+    /**
+     * Does this symbol table contain the given key?
+     * @param key the key
+     * @return {@code true} if this symbol table contains {@code key} and
+     *     {@code false} otherwise
+     * @throws IllegalArgumentException if {@code key} is {@code null}
+     */
+    public boolean contains(Key key) {
+        return get(key) != null;
+    }
+
+    
 }
 
 
