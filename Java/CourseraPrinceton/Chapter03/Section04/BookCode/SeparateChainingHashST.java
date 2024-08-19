@@ -87,6 +87,20 @@ public class SeparateChainingHashST<Key, Value> {
         return get(key) != null;
     }
 
+    /**
+     * Returns the value associated with the specified key in this symbol table.
+     *
+     * @param  key the key
+     * @return the value associated with {@code key} in the symbol table;
+     *         {@code null} if no such value
+     * @throws IllegalArgumentException if {@code key} is {@code null}
+     */
+    public Value get(Key key) {
+        if (key == null) throw new IllegalArgumentException("argument to get() is null");
+        int i = hash(key);
+        return st[i].get(key);
+    }
+
 }
 
 
