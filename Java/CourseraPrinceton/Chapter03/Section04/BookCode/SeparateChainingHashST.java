@@ -29,6 +29,17 @@ public class SeparateChainingHashST<Key, Value> {
             st[i] = new SequentialSearchST<Key, Value>();
     }
 
-
-
+    // resize the hash table to have the given number of chains.
+    // rehashing all the keys.
+    private void resize(int chains) {
+        SeparateChainingHashST<Key, Value> temp = new SeparateChainingHashST<Key, Value>(chains);
+        for (int i = 0; i < m; i++) {
+            for (Key key : st[i].keys())
+                temp.put(key, st[i].get(key));
+        }
+        this.m  = temp.m;
+        this.n  = temp.n;
+        this.st = temp.st;
+    }
+    
 }
