@@ -412,7 +412,7 @@ public class RedBlackBST<Key extends Comparable<Key>, Value> {
      * @throws NoSuchElementException if there is no such key
      * @throws IllegalArgumentException if {@code key} is {@code null}
      */
-    public key floor(Key key) {
+    public Key floor(Key key) {
         if (key == null) throw new IllegalArgumentException("argument to floor() is null");
         if (isEmpty())   throw new NoSuchElementException("calls floor() with empty symbol table");
         Node x = floor(root, key);
@@ -512,6 +512,17 @@ public class RedBlackBST<Key extends Comparable<Key>, Value> {
     /***************************************************************************
      *  Range count and range search.
      ***************************************************************************/
+
+    /**
+     * Returns all keys in the symbol table in ascending order as an {@code Iterable}.
+     * To iterate over all of the keys in the symbol table named {@code st},
+     * use the foreach notation: {@code for (Key key : st.keys())}.
+     * @return all keys in the symbol table in ascending order
+     */
+    public Iterable<Key> keys() {
+        if (isEmpty()) return new Queue<Key>();
+        return keys(min(), max());
+    }
 
     /**
      * Returns all keys in the symbol table in the given range in ascending order,
