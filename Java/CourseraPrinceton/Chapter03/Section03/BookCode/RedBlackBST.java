@@ -270,6 +270,36 @@ public class RedBlackBST<Key extends Comparable<Key>, Value> {
         }
         return balance(h);
     }
+
+    /*************************************************************
+     *  Red-black tree helper functions.
+     *************************************************************/
+
+    // make a left-leaning link lean to the right
+    private Node rotateRight(Node h) {
+        assert ( h != null) && isRed(h.right) && !isRed(h.left); // for insertions only.
+        Node x = h.right;
+        h.right = x.left;
+        x.left = h;
+        x.color = h.color;
+        h.color = RED;
+        x.size = h.size;
+        h.size = size(h.left) + size(h.right) + 1;
+        return x;
+    }
+
+    // flip the colors of a node and its two children
+    private void flipColors(Node h) {
+        // h must have opposite color of its two children.
+        assert (h != null) && (h.left != null) && (h.right != null);
+        assert (!isRed(h) && isRed(h.left) && isRed(h.right)) ||
+                (isRed(h) && !isRed(h.left) && !isRed(h.right));
+        h.color       = !h.color;
+        h.left.color  = !h.left.color;
+        h.right.color = !h.right.color;
+    }
+
+    
 }
 
 
