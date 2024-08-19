@@ -3,6 +3,8 @@
 
 import edu.princeton.cs.algs4.Queue;
 import edu.princeton.cs.algs4.SequentialSearchST;
+import edu.princeton.cs.algs4.StdIn;
+import edu.princeton.cs.algs4.StdOut;
 
 @SuppressWarnings("unchecked")
 public class SeparateChainingHashST<Key, Value> {
@@ -152,6 +154,23 @@ public class SeparateChainingHashST<Key, Value> {
             for (Key key : st[i].keys())
                 queue.enqueue(key);
         return queue;
+    }
+
+    /**
+     * Unit tests the {@code SeparateChainingHashST} data type.
+     *
+     * @param args the command-line arguments
+     */
+    public static void main(String[] args) {
+        SeparateChainingHashST<String, Integer> st = new SeparateChainingHashST<String, Integer>();
+        for (int i = 0; !StdIn.isEmpty(); i++) {
+            String key = StdIn.readString();
+            st.put(key, i);
+        }
+
+        // print keys
+        for (String s : st.keys())
+            StdOut.println(s + " " + st.get(s));
     }
 }
 
