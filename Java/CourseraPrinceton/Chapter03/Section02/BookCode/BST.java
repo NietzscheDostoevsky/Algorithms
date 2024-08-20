@@ -1,4 +1,11 @@
 // Complete implementation of Binary Search Tree Symbol Table.
+// This implementation of the ordered symbol-table API uses a 
+// binary search tree built from Node objects that each contain a key,
+// associated value, two links, and a node count N. 
+// Each Node is the root of a subtree containing N nodes, 
+// with its left link pointing to a Node that is the root of a subtree with
+// smaller keys and its right link pointing to
+// a Node that is the root of a subtree with larger keys.
 
 import java.util.NoSuchElementException;
 import edu.princeton.cs.algs4.Queue;
@@ -76,6 +83,9 @@ public class BST<Key extends Comparable<Key>, Value> {
         return get(root, key);
     }
 
+    // The code maintains the invariant that 
+    // no parts of the tree other than the subtree rooted at the current node 
+    // can have a node whose key is equal to the search key.
     private Value get(Node x, Key key) {
         // Recursive approach
 
