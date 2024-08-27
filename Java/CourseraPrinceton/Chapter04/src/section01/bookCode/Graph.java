@@ -6,6 +6,7 @@ import edu.princeton.cs.algs4.Bag;
 import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.StdOut;
 
+@SuppressWarnings("unchecked")
 public class Graph {
 	
 	private static final String NEWLINE = System.getProperty("line.separator");
@@ -42,6 +43,7 @@ public class Graph {
      * @throws IllegalArgumentException if the number of vertices or edges is negative
      * @throws IllegalArgumentException if the input stream is in the wrong format
      */
+	
 	public Graph(In in) {
 		if (in == null) throw new IllegalArgumentException("argumetn is null");
 		try {
