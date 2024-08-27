@@ -17,13 +17,74 @@ package section01.bookCode;
 //*  12: 11 9
 
 import java.util.NoSuchElementException;
+
+import edu.princeton.cs.algs4.Bag;
 import edu.princeton.cs.algs4.StdOut;
 
 public class Graph {
 	
+	private static final String NEWLINE = System.getProperty("line.separator");
+	
+	private final int V;
+	private int E; 
+	private Bag<Integer>[] adj;
+	
+	/**
+	 * Initializes an empty graph with {@code V} vertices and 0 edges. 
+	 * param V the number of vertices
+	 * 
+	 * @param V number of vertices
+	 * @throws IllegalArgumentException if {@code V < 0}
+	 */
+	public Graph(int V) {
+		if (V < 0) throw new IllegalArgumentException("Number of vertices must be non-negative");
+		this.V = V; 
+		this.E = 0; 
+		adj = (Bag<Integer>[]) new Bag[V];
+		for (int v = 0; v < V; v++)
+			adj[v]= new Bag<Integer>();
+		
+	}
 	
 	
 	public static void main(String[] args) {
 		StdOut.println("Hello");
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
