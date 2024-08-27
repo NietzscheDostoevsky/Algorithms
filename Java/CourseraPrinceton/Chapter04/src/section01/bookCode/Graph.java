@@ -1,24 +1,9 @@
 package section01.bookCode;
 
-// Usage :  java Graph tinyG.txt
-//13 vertices, 13 edges
-//*  0: 6 2 1 5
-//*  1: 0
-//*  2: 0
-//*  3: 5 4
-//*  4: 5 6 3
-//*  5: 3 4 0
-//*  6: 0 4
-//*  7: 8
-//*  8: 7
-//*  9: 11 10 12
-//*  10: 9
-//*  11: 9 12
-//*  12: 11 9
-
 import java.util.NoSuchElementException;
 
 import edu.princeton.cs.algs4.Bag;
+import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.StdOut;
 
 public class Graph {
@@ -42,10 +27,42 @@ public class Graph {
 		this.E = 0; 
 		adj = (Bag<Integer>[]) new Bag[V];
 		for (int v = 0; v < V; v++)
-			adj[v]= new Bag<Integer>();
-		
+			adj[v]= new Bag<Integer>();	
 	}
 	
+	/**
+     * Initializes a graph from the specified input stream.
+     * The format is the number of vertices <em>V</em>,
+     * followed by the number of edges <em>E</em>,
+     * followed by <em>E</em> pairs of vertices, with each entry separated by whitespace.
+     *
+     * @param  in the input stream
+     * @throws IllegalArgumentException if {@code in} is {@code null}
+     * @throws IllegalArgumentException if the endpoints of any edge are not in prescribed range
+     * @throws IllegalArgumentException if the number of vertices or edges is negative
+     * @throws IllegalArgumentException if the input stream is in the wrong format
+     */
+	public Graph(In in) {
+		if (in == null) throw new IllegalArgumentException("argumetn is null");
+		try {
+			this.V = in.readInt();
+			if (V < 0) throw new IllegalArgumentException("number of vertices in a Graph must be non-negative");
+			adj = (Bag<Integer>[]) new Bag[V];
+			for (int v = 0; v < V; v++) 
+				adj[v] = new Bag<Integer>();
+			int E = in.readInt();
+			if (E < 0) throw new IllegalArgumentException("number of edges in a Graph must be non-negative");
+			for (int i = 0; i < E; i++) {
+				int v = in.readInt();
+				int w = in.readInt();
+				validateVertex(v);
+				validateVertex(w);
+				addEdge(v, w);
+			}
+		} catch (NoSuchElementException e) {
+			throw new IllegalArgumentException("invalid input format in Graph constructor", e);
+		}
+	}
 	
 	public static void main(String[] args) {
 		StdOut.println("Hello");
