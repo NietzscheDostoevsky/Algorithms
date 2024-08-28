@@ -3,6 +3,7 @@ package section01.bookCode;
 import java.util.NoSuchElementException;
 
 import javax.swing.event.AncestorEvent;
+import javax.xml.validation.Validator;
 
 import edu.princeton.cs.algs4.Bag;
 import edu.princeton.cs.algs4.In;
@@ -161,7 +162,36 @@ public class Graph {
     	return adj[v]; // return the bag object containing the vertices.
     }
     
+    /**
+     * Returns the degree of vertex {@code v}.
+     *
+     * @param  v the vertex
+     * @return the degree of vertex {@code v}
+     * @throws IllegalArgumentException unless {@code 0 <= v < V}
+     */
+    public int degree(int v) {
+    	validateVertex(v);
+    	return adj[v].size(); // return the size of the bag
+    }
     
+    /**
+     * Returns a string representation of this graph.
+     *
+     * @return the number of vertices <em>V</em>, followed by the number of edges <em>E</em>,
+     *         followed by the <em>V</em> adjacency lists
+     */
+    @Override
+    public String toString() {
+    	StringBuilder s = new StringBuilder();
+    	s.append(V + " vertices, " + E + " edges " + NEWLINE);
+    	for (int v = 0; v < V; v++) {
+    		s.append(v + ": ");
+    		for (int w : adj[v])
+    			s.append(w + " ");
+    		s.append(NEWLINE);
+    	}
+    	return s.toString();
+    }
     
 	
 	public static void main(String[] args) {
