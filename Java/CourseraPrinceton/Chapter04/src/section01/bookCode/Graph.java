@@ -119,6 +119,24 @@ public class Graph {
     public int E() {
         return E;
     }
+    
+    // throw an IllegalArgumentException unless {@code 0 <= v <V}
+    private void validateVertex(int v) {
+    	if (v < 0 || v >= V)
+    		throw new IllegalArgumentException("veretx " + v + " is not between 0 and " + (V-1));
+    }
+    
+    /**
+     * Adds the undirected edge v-w to this graph.
+     *
+     * @param  v one vertex in the edge
+     * @param  w the other vertex in the edge
+     * @throws IllegalArgumentException unless both {@code 0 <= v < V} and {@code 0 <= w < V}
+     */
+    
+    
+    
+    
 	
 	public static void main(String[] args) {
 		StdOut.println("Hello");
