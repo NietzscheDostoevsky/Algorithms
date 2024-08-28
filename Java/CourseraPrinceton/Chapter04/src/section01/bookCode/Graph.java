@@ -73,7 +73,7 @@ public class Graph {
 		}
 	}
 	
-	/*
+	/**
 	 * Initializes a new graph that is deep copy of {@code G} is {@code null}.
 	 * 
 	 * @param IllegalArgumentExceptino if {@code G} is {@code null}
@@ -101,6 +101,24 @@ public class Graph {
 				adj[v].add(w); 
 		}
 	}
+	
+	/**
+     * Returns the number of vertices in this graph.
+     *
+     * @return the number of vertices in this graph
+     */
+    public int V() {
+        return V;
+    }
+
+    /**
+     * Returns the number of edges in this graph.
+     *
+     * @return the number of edges in this graph
+     */
+    public int E() {
+        return E;
+    }
 	
 	public static void main(String[] args) {
 		StdOut.println("Hello");
