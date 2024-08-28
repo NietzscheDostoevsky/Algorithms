@@ -149,6 +149,17 @@ public class Graph {
     	adj[w].add(v);
     }
     
+    /**
+     * Returns the vertices adjacent to vertex {@code v}.
+     *
+     * @param  v the vertex
+     * @return the vertices adjacent to vertex {@code v}, as an iterable
+     * @throws IllegalArgumentException unless {@code 0 <= v < V}
+     */
+    public Iterable<Integer> adj(int v) {
+    	validateVertex(v);
+    	return adj[v]; // return the bag object containing the vertices.
+    }
     
     
     
