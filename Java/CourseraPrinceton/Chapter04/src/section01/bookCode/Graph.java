@@ -136,9 +136,17 @@ public class Graph {
     public void addEdge(int v, int w) {
     	validateVertex(v);
     	validateVertex(w);
-    	E++; // increase the number of edges
-    	adj[v].add(w); // update the bag of a particular vertex, adding a edge is equivalent to makeing the vertices adjacent. 
-    	adj[w].add(v); // bags of both vertices have to be added each other's value, since v -> w === w -> v
+    	E++; // increment the number of edges
+    	
+    	// Add vertex w to the adjacency list of vertex v.
+        // This step makes vertex v adjacent to vertex w.
+    	// update the bag of a particular vertex, adding a edge is equivalent to making the vertices adjacent.
+    	adj[v].add(w);  
+    	
+    	// Add vertex v to the adjacency list of vertex w.
+        // Since the graph is undirected, we must add the edge in both directions
+    	// bags of both vertices have to be added each other's value, since v -> w === w -> v
+    	adj[w].add(v);
     }
     
     
