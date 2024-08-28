@@ -133,6 +133,13 @@ public class Graph {
      * @param  w the other vertex in the edge
      * @throws IllegalArgumentException unless both {@code 0 <= v < V} and {@code 0 <= w < V}
      */
+    public void addEdge(int v, int w) {
+    	validateVertex(v);
+    	validateVertex(w);
+    	E++; // increase the number of edges
+    	adj[v].add(w); // update the bag of a particular vertex, adding a edge is equivalent to makeing the vertices adjacent. 
+    	adj[w].add(v); // bags of both vertices have to be added each other's value, since v -> w === w -> v
+    }
     
     
     
