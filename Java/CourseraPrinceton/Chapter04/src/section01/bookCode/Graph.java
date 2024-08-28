@@ -2,9 +2,6 @@ package section01.bookCode;
 
 import java.util.NoSuchElementException;
 
-import javax.swing.event.AncestorEvent;
-import javax.xml.validation.Validator;
-
 import edu.princeton.cs.algs4.Bag;
 import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.Stack;
@@ -193,9 +190,17 @@ public class Graph {
     	return s.toString();
     }
     
-	
+    /**
+     * Unit tests the {@code Graph} data type.
+     *
+     * @param args the command-line arguments
+     */	
 	public static void main(String[] args) {
-		StdOut.println("Hello");
+		StdOut.println("Hello, testing Graph DS");
+		
+		In in = new In(args[0]);
+		Graph graph = new Graph(in);
+		StdOut.println(graph);
 	}
 }
 
