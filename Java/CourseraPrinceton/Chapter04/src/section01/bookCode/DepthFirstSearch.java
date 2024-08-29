@@ -1,5 +1,7 @@
 package section01.bookCode;
 
+import edu.princeton.cs.algs4.In;
+
 public class DepthFirstSearch {
 	private boolean[] marked; // marked[v] = is there an s-v path? 
 	private int count;
@@ -37,5 +39,11 @@ public class DepthFirstSearch {
 		int V = marked.length;
 		if (v < 0 || v > V)
 			throw new IllegalArgumentException("Vertex " + v + " is not between 0 and " + (V-1));
+	}
+	
+	// Code to test 
+	public static void main(String[] args) {
+		In in = new In(args[0]);
+		
 	}
 }
