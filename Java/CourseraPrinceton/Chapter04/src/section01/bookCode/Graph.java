@@ -7,6 +7,12 @@ import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.Stack;
 import edu.princeton.cs.algs4.StdOut;
 
+/**
+ * This Graph implementation maintains a vertex-indexed array of lists of integers. Every edge appears
+twice: if an edge connects v and w, then w appears in v’s list and v appears in w’s list. The second con-
+structor reads a graph from an input stream, in the format V followed by E followed by a list of pairs
+of int values between 0 and V-1
+*/
 @SuppressWarnings("unchecked")
 public class Graph {
 	
